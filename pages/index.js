@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import Image from 'next/image'
 import TopMenu from '../components/home/TopMenu'
 import Slider from '../components/home/Slider'
