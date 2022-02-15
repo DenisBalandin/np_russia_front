@@ -2,23 +2,24 @@ import { useState, useEffect } from "react/cjs/react.development";
 import MostReadPost from "./MostReadPost";
 import data from "/data/files/posts.js";
 const MostRead = () => {
-    // const arr = data.slice().sort((a,b) => new Date(a.views) - new Date(b.views)).reverse();
+    const arr = data.slice().sort((a,b) => new Date(a.views) - new Date(b.views)).reverse();
     const [width, setWidth] = useState(0);
     const [mrID, setMrID] = useState(0);
-    // useEffect(() => setInterval(()=>{
-    // }, 100), [])
+    useEffect(() => setInterval(()=>{
+        setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
+    }, 100), [])
     const scrollLeft = (i) => {
-        // mrID ? setMrID(mrID-i) : setMrID(arr.length-i);
+        mrID ? setMrID(mrID-i) : setMrID(arr.length-i);
     };
     const scrollRight = (i) => {
-        // mrID == arr.length-i ? setMrID(0) : setMrID(mrID+i)
+        mrID == arr.length-i ? setMrID(0) : setMrID(mrID+i)
     }
     return(
         <div className="mr-background">
                 <div className="mr-carousel">
                     <div className="mr-top">
-                        <div className="title">Самое читаемое</div>
-                        <div className="arrows mob">
+                        {/* <div className="title">Самое читаемое</div> */}
+                        {/* <div className="arrows mob">
                             <div className="arrow" onClick={()=>scrollLeft(2)}>←</div>
                             <div className="arrow" onClick={()=>scrollRight(2)}>→</div>
                         </div>
@@ -29,7 +30,7 @@ const MostRead = () => {
                         <div className="arrows mr-four">
                             <div className="arrow" onClick={()=>scrollLeft(4)}>←</div>
                             <div className="arrow" onClick={()=>scrollRight(4)}>→</div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="mr-bottom mob">
                         <MostReadPost id={mrID} />
