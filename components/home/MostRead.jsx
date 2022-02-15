@@ -9,10 +9,10 @@ const MostRead = () => {
     //     setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
     // }, 100), [])
     const scrollLeft = (i) => {
-        mrID ? setMrID(mrID-i) : setMrID(arr.length-i);
+        // mrID ? setMrID(mrID-i) : setMrID(arr.length-i);
     };
     const scrollRight = (i) => {
-        mrID == arr.length-i ? setMrID(0) : setMrID(mrID+i)
+        // mrID == arr.length-i ? setMrID(0) : setMrID(mrID+i)
     }
     return(
         <div className="mr-background">
