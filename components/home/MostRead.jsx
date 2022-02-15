@@ -3,10 +3,10 @@ import MostReadPost from "./MostReadPost";
 import data from "/data/files/posts.js";
 const MostRead = () => {
     const arr = data.slice().sort((a,b) => new Date(a.views) - new Date(b.views)).reverse();
-    const [width, setWidth] = useState(0);
+    const [containerWidth, setContainerWidth] = useState(0);
     const [mrID, setMrID] = useState(0);
     useEffect(() => setInterval(()=>{
-        setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
+        setContainerWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
     }, 100), [])
     const scrollLeft = (i) => {
         mrID ? setMrID(mrID-i) : setMrID(arr.length-i);
@@ -16,38 +16,38 @@ const MostRead = () => {
     }
     return(
         <div className="mr-background">
-                <div className="mr-carousel">
-                    <div className="mr-top">
-                        <div className="title">Самое читаемое</div>
-                        <div className="arrows mob">
-                            <div className="arrow" onClick={()=>scrollLeft(2)}>←</div>
-                            <div className="arrow" onClick={()=>scrollRight(2)}>→</div>
-                        </div>
-                        <div className="arrows mr-three">
-                            <div className="arrow" onClick={()=>scrollLeft(3)}>←</div>
-                            <div className="arrow" onClick={()=>scrollRight(3)}>→</div>
-                        </div>
-                        <div className="arrows mr-four">
-                            <div className="arrow" onClick={()=>scrollLeft(4)}>←</div>
-                            <div className="arrow" onClick={()=>scrollRight(4)}>→</div>
-                        </div>
+            <div className="mr-carousel">
+                <div className="mr-top">
+                    <div className="title">Самое читаемое</div>
+                    <div className="arrows mob">
+                        <div className="arrow" onClick={()=>scrollLeft(2)}>←</div>
+                        <div className="arrow" onClick={()=>scrollRight(2)}>→</div>
                     </div>
-                    <div className="mr-bottom mob">
-                        <MostReadPost id={mrID} />
-                        <MostReadPost id={mrID+1} />
+                    <div className="arrows mr-three">
+                        <div className="arrow" onClick={()=>scrollLeft(3)}>←</div>
+                        <div className="arrow" onClick={()=>scrollRight(3)}>→</div>
                     </div>
-                    <div className="mr-bottom mr-three">
-                        <MostReadPost id={mrID} />
-                        <MostReadPost id={mrID+1} />
-                        <MostReadPost id={mrID+2} />
-                    </div>
-                    <div className="mr-bottom mr-four">
-                        <MostReadPost id={mrID} />
-                        <MostReadPost id={mrID+1} />
-                        <MostReadPost id={mrID+2} />
-                        <MostReadPost id={mrID+3} />
+                    <div className="arrows mr-four">
+                        <div className="arrow" onClick={()=>scrollLeft(4)}>←</div>
+                        <div className="arrow" onClick={()=>scrollRight(4)}>→</div>
                     </div>
                 </div>
+                <div className="mr-bottom mob">
+                    <MostReadPost id={mrID} />
+                    <MostReadPost id={mrID+1} />
+                </div>
+                <div className="mr-bottom mr-three">
+                    <MostReadPost id={mrID} />
+                    <MostReadPost id={mrID+1} />
+                    <MostReadPost id={mrID+2} />
+                </div>
+                <div className="mr-bottom mr-four">
+                    <MostReadPost id={mrID} />
+                    <MostReadPost id={mrID+1} />
+                    <MostReadPost id={mrID+2} />
+                    <MostReadPost id={mrID+3} />
+                </div>
+            </div>
             <style jsx>{`
                 @media (min-width: 0px) {              
                     .mr-four {
@@ -108,7 +108,7 @@ const MostRead = () => {
                     left: 0;
                 }
                 .mr-carousel {
-                    width: ${width}px;
+                    width: ${containerWidth}px;
                 }
                 .mr-top {
                     display: flex;
