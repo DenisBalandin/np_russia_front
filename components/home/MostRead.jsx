@@ -5,9 +5,9 @@ const MostRead = () => {
     const arr = data.slice().sort((a,b) => new Date(a.views) - new Date(b.views)).reverse();
     const [width, setWidth] = useState(0);
     const [mrID, setMRID] = useState(0);
-    useEffect(() => setInterval(()=>{
-        setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
-    }, 100), [])
+    // useEffect(() => setInterval(()=>{
+    //     setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
+    // }, 100), [])
     const scrollLeft = (i) => {
         mrID ? setMRID(mrID-i) : setMRID(arr.length-i);
     };
@@ -32,7 +32,7 @@ const MostRead = () => {
                             <div className="arrow" onClick={()=>scrollRight(4)}>→</div>
                         </div>
                     </div>
-                    {/* <div className="mr-bottom mob">
+                    <div className="mr-bottom mob">
                         <MostReadPost id={mrID} />
                         <MostReadPost id={mrID+1} />
                     </div>
@@ -46,7 +46,7 @@ const MostRead = () => {
                         <MostReadPost id={mrID+1} />
                         <MostReadPost id={mrID+2} />
                         <MostReadPost id={mrID+3} />
-                    </div> */}
+                    </div>
                 </div>
             <style jsx>{`
                 @media (min-width: 0px) {              
