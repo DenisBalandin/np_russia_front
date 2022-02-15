@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react/cjs/react.development";
+import React, { useState, useEffect } from "react/cjs/react";
 import MostReadPost from "./MostReadPost";
 import data from "/data/files/posts.js";
 const MostRead = () => {
@@ -16,7 +16,7 @@ const MostRead = () => {
     }
     return(
         <div className="mr-background">
-            {/* <div className="mr-carousel">
+            <div className="mr-carousel">
                 <div className="mr-top">
                     <div className="title">Самое читаемое</div>
                     <div className="arrows mob">
@@ -151,7 +151,7 @@ const MostRead = () => {
                     color: red;
                     cursor: pointer;
                 }
-            `}</style> */}
+            `}</style>
         </div>
     )
 }
