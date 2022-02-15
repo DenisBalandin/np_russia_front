@@ -37,7 +37,7 @@ const Blog = (arr) => {
                     <div className="ad">Advertisement</div>
                 </div>
                 <div className="most-read">
-                    {/* <MostRead /> */}
+                    <MostRead />
                 </div>
                 <div className="half second">
                     <div className="two post-list">

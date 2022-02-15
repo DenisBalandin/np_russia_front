@@ -32,7 +32,7 @@ const MostRead = () => {
                             <div className="arrow" onClick={()=>scrollRight(4)}>→</div>
                         </div>
                     </div>
-                    <div className="mr-bottom mob">
+                    {/* <div className="mr-bottom mob">
                         <MostReadPost id={mrID} />
                         <MostReadPost id={mrID+1} />
                     </div>
@@ -46,7 +46,7 @@ const MostRead = () => {
                         <MostReadPost id={mrID+1} />
                         <MostReadPost id={mrID+2} />
                         <MostReadPost id={mrID+3} />
-                    </div>
+                    </div> */}
                 </div>
             <style jsx>{`
                 @media (min-width: 0px) {              
