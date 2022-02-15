@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react/cjs/react";
+import React, { useState, useEffect } from "react";
 import MostReadPost from "./MostReadPost";
 import data from "/data/files/posts.js";
 const MostRead = () => {
