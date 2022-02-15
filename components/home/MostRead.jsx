@@ -2,17 +2,17 @@ import { useState, useEffect } from "react/cjs/react.development";
 import MostReadPost from "./MostReadPost";
 import data from "/data/files/posts.js";
 const MostRead = () => {
-    const arr = data.slice().sort((a,b) => new Date(a.views) - new Date(b.views)).reverse();
+    // const arr = data.slice().sort((a,b) => new Date(a.views) - new Date(b.views)).reverse();
     const [width, setWidth] = useState(0);
-    const [mrID, setMRID] = useState(0);
+    const [mrID, setMrID] = useState(0);
     // useEffect(() => setInterval(()=>{
     //     setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
     // }, 100), [])
     const scrollLeft = (i) => {
-        mrID ? setMRID(mrID-i) : setMRID(arr.length-i);
+        mrID ? setMrID(mrID-i) : setMrID(arr.length-i);
     };
     const scrollRight = (i) => {
-        mrID == arr.length-i ? setMRID(0) : setMRID(mrID+i)
+        mrID == arr.length-i ? setMrID(0) : setMrID(mrID+i)
     }
     return(
         <div className="mr-background">
