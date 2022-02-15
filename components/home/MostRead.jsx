@@ -108,7 +108,7 @@ const MostRead = () => {
                     left: 0;
                 }
                 .mr-carousel {
-                    // width: ${width}px;
+                    width: ${width}px;
                 }
                 .mr-top {
                     display: flex;
