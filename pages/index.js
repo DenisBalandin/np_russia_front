@@ -22,7 +22,7 @@ export default function Home() {
       <div className="news-wrap">
           <News />
       </div>
-      <Blog />
+      {/* <Blog /> */}
         <style jsx>{`
           @media (min-width: 0px){
             .Menu {
