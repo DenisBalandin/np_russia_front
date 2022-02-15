@@ -18,8 +18,8 @@ const MostRead = () => {
         <div className="mr-background">
                 <div className="mr-carousel">
                     <div className="mr-top">
-                        {/* <div className="title">Самое читаемое</div> */}
-                        {/* <div className="arrows mob">
+                        <div className="title">Самое читаемое</div>
+                        <div className="arrows mob">
                             <div className="arrow" onClick={()=>scrollLeft(2)}>←</div>
                             <div className="arrow" onClick={()=>scrollRight(2)}>→</div>
                         </div>
@@ -30,7 +30,7 @@ const MostRead = () => {
                         <div className="arrows mr-four">
                             <div className="arrow" onClick={()=>scrollLeft(4)}>←</div>
                             <div className="arrow" onClick={()=>scrollRight(4)}>→</div>
-                        </div> */}
+                        </div>
                     </div>
                     <div className="mr-bottom mob">
                         <MostReadPost id={mrID} />
@@ -108,7 +108,7 @@ const MostRead = () => {
                     left: 0;
                 }
                 .mr-carousel {
-                    width: ${width}px;
+                    // width: ${width}px;
                 }
                 .mr-top {
                     display: flex;
