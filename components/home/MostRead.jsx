@@ -14,7 +14,7 @@ const MostRead = () => {
     const scrollRight = (i) => {
         mrID == arr.length-i ? setMRID(0) : setMRID(mrID+i)
     }
-    return(width?
+    return(
         <div className="mr-background">
                 <div className="mr-carousel">
                     <div className="mr-top">
@@ -152,7 +152,7 @@ const MostRead = () => {
                     cursor: pointer;
                 }
             `}</style>
-        </div>:null
+        </div>
     )
 }
 

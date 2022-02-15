@@ -1,20 +1,15 @@
 "use strict";
 
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import Link from "next/link"
 import newsData from "/data/files/news";
 import NewsPreview from "./NewsPreview";
 const News = () => {
     const [newsID, setNewsID] = useState(0);
     const [width, setWidth] = useState(0);
-    if (typeof window !== "undefined") {
-        setInterval(()=>{
-            if (width !== window.document.getElementsByClassName("most-read")[0].offsetWidth) {
-                width = window.document.getElementsByClassName("most-read")[0].offsetWidth;
-                setWidth(width)
-            }
-        }, 100)
-    }
+    useEffect(() => setInterval(()=>{
+        setWidth(window.document.getElementsByClassName("most-read")[0].offsetWidth)
+    }, 100), [])
     const scrollLeft = (i) => {
         newsID ? setNewsID(newsID-i) : setNewsID(newsData.length-i);
     };
