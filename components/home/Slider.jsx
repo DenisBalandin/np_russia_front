@@ -12,11 +12,11 @@ const Slider = () => {
     const mainSlideData = {title: sliderData[selectedPic].title, description: sliderData[selectedPic].description};
     const height = '1000vw';
     const width = '1000vw';
-    function toTheLeft(i) {
-        i?setSelectedPic(i-1):setSelectedPic(i = sliderData.length-1)
+    const toTheLeft = (i) => {
+        i?setSelectedPic(i-1):setSelectedPic(sliderData.length-1)
     }
-    function toTheRight(i) {
-        i===sliderData.length-1?setSelectedPic(i = 0):setSelectedPic(i+1)
+    const toTheRight = (i) => {
+        i===sliderData.length-1?setSelectedPic(0):setSelectedPic(i+1)
     }
     return (
         <>
@@ -181,7 +181,7 @@ const Slider = () => {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border-bottom: 5px solid grey;
+                    border-bottom: 5px solid gray;
                     height: inherit;
                 }
                 .actualShader {
@@ -233,7 +233,7 @@ const Slider = () => {
                 .description {
                     position: absolute;
                     font-size: 1.5rem;
-                    color: lightgrey;
+                    color: lightgray;
                     overflow: hidden;
                     transition: all 2s linear;
                     text-shadow:

@@ -49,23 +49,23 @@ const Menu = () => {
                     }
                 }
                 @media (min-width: 800px) {
-                    .menu-background{
-                        position: relative;
-                        flex-direction: row;
-                        z-index:2;
+                    .menu-background {
                         min-height: 3rem;
-                        background: black;
-                        display: flex;
-                        justify-content: center;
-                        flex-wrap: wrap;
                     }
                     ul {
                         border: none;
                     }
                     .menu {
                         margin: 0 auto 0 auto;
+                        position: relative;
                         color: #ffffff;
+                        background: black;
                         list-style: none;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+
                         align-items: center;
                     }
                     .menu li{

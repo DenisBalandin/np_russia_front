@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/dist/client/image";
 
-export default function menuButton ({link, text, img}) {
+const menuButton = ({link, text, img}) => {
     return (
         <div>
             <div className="button">
@@ -24,7 +24,7 @@ export default function menuButton ({link, text, img}) {
                 @media (min-width:120px) {
                     .text {
                         font-family: inherit;
-                        padding: 1rem 0 1rem 0  ;
+                        padding: 1rem 0 1rem 0;
                         font-size: 0.5rem;
                         margin: auto .75rem auto .75rem;
                         text-align: center;
@@ -61,3 +61,4 @@ export default function menuButton ({link, text, img}) {
         
     )
 }
+export default menuButton;

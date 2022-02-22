@@ -14,7 +14,7 @@ import nav from "/data/files/images/nav.png";
 import searchMob from "/data/files/images/searchMob.png";
 import cross from "/data/files/images/header_close.png";
 import { useState } from "react";
-export default function TopMenu () {
+const TopMenu = () => {
     const [clicked, setClick] = useState(false);
     const [menu, setMenu] = useState(false);
     const menuToggle = () => {
@@ -74,10 +74,10 @@ export default function TopMenu () {
                         <MenuButton link="/subscribe" text="Рассылка" />
                     </div>
                     <div className="logo-box">
-                        <div className="logo">
+                        <div>
                             <Link href="/">
                                 <a>
-                                    NP Russia
+                                    <span  className="logo">NP Russia</span>
                                 </a>
                             </Link>
                         </div>
@@ -105,7 +105,7 @@ export default function TopMenu () {
                 </nav>
             </div>
         <style jsx>{`
-            @media (min-width: 120px) { 
+            @media (min-width: 0px) { 
                 .topbar {
                     visibility: hidden;
                     position: absolute;
@@ -176,13 +176,28 @@ export default function TopMenu () {
                     font-weight: bold;
                     margin: auto;
                     margin-left: -0.75 rem;
-                    color: white;
+                
+                }
+                .logo {
                     text-shadow:
                         3px  3px 0 #000,
                         -1px -1px 0 #000,  
                         1px -1px 0 #000,
                         -1px  1px 0 #000,
                         1px  1px 0 #000;
+                    color: white;
+                }
+                .logo:hover {
+                    transition: all 2s;
+                    background-image: linear-gradient(to bottom, white, white, blue, red, red);
+                    text-shadow:
+                        3px  3px 3px rgb(0, 0, 0,.1),
+                        -1px -1px 3px rgb(0, 0, 0,.1),  
+                        1px -1px 3px rgb(0, 0, 0,.1),
+                        -1px  1px 3px rgb(0, 0, 0,.1),
+                        1px  1px 3px rgb(0, 0, 0,.1);
+                    background-clip: text;
+                    color: transparent;
                 }
                 .right-side {
                     height:3em;
@@ -238,3 +253,4 @@ export default function TopMenu () {
         </>
     )
 }
+export default TopMenu;
