@@ -13,7 +13,7 @@ const menuButton = ({link, text, img}) => {
                     :
                         <div className="image">
                             <a>
-                                    <Image src={img} />
+                                <Image src={img} />
                             </a>
                         </div>
                     }

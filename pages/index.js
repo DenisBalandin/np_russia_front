@@ -5,6 +5,7 @@ import Slider from '../components/home/Slider'
 import Menu from '../components/home/Menu'
 import styles from '../styles/Home.module.css'
 import News from '../components/home/News'
+import Blog from '../components/home/Blog'
 export default function Home() {
   return (
     <div>
@@ -15,14 +16,13 @@ export default function Home() {
       </Head>
       <TopMenu />  
       <Slider />
-      <div className="news-wrap">
-        <div className="Menu">
-          <Menu />
-        </div>
-        <div className="news">
-          <News />
-        </div>
+      <div className="Menu">
+        <Menu />
       </div>
+      <div className="news-wrap">
+          <News />
+      </div>
+      <Blog />
         <style jsx>{`
           @media (min-width: 0px){
             .Menu {
@@ -34,12 +34,11 @@ export default function Home() {
             .Menu {
               visibility: visible;
               max-width: 100%;
+              position: -webkit-sticky;
               position: sticky;
               height: auto;
               top: 0;
-            }
-            .news {
-              position: relative;
+              z-index:2;
             }
           }
           .news-wrap {

@@ -109,6 +109,7 @@ const TopMenu = () => {
                 .topbar {
                     visibility: hidden;
                     position: absolute;
+                    display: none;
                 }
                 .mobileTopbar {
                     position: relative;
