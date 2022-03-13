@@ -68,7 +68,7 @@ const News = () => {
       <style jsx>{`
         .container {
           margin: auto;
-          padding: 0 .5rem 0 .5rem;
+          padding: 0 0.5rem 0 0.5rem;
         }
         .carousel {
           display: flex;
@@ -131,8 +131,8 @@ const News = () => {
           gap: 1rem;
           margin-left: auto;
         }
-        @media (min-width:77rem) {
-          .container{
+        @media (min-width: 77rem) {
+          .container {
             padding: 0;
           }
         }

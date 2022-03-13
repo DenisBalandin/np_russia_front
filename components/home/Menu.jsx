@@ -8,24 +8,30 @@ const Menu = () => {
   useEffect(() => {
     setInterval(() => {
       if (typeof window !== "undefined") {
-        setVisibility(document.getElementsByClassName("Menu")[0].getBoundingClientRect().top ? "hidden" : "visible");
-        setPosition(document.getElementsByClassName("Menu")[0].getBoundingClientRect().top ? "absolute" : "relative");
+        setVisibility(
+          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+            ? "hidden"
+            : "visible"
+        );
+        setPosition(
+          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+            ? "absolute"
+            : "relative"
+        );
       }
-    }, 100)
+    }, 100);
   });
   return (
     <>
       <div className="menu-background">
         <div className="menu">
-
-        
           <ul>
             <li className="logo-box">
               <div>
                 <Link href="/">
-                    <a>
-                        <span  className="logo">NP Russia</span>
-                    </a>
+                  <a>
+                    <span className="logo">NP Russia</span>
+                  </a>
                 </Link>
               </div>
             </li>
@@ -72,12 +78,8 @@ const Menu = () => {
             visibility: hidden;
           }
           .logo {
-            text-shadow:
-                3px  3px 0 #fff,
-                -1px -1px 0 #fff,  
-                1px -1px 0 #fff,
-                -1px  1px 0 #fff,
-                1px  1px 0 #fff;
+            text-shadow: 3px 3px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+              -1px 1px 0 #fff, 1px 1px 0 #fff;
             color: black;
           }
         }

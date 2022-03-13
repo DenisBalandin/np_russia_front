@@ -15,7 +15,7 @@ const MostRead = () => {
     .slice()
     .sort((a, b) => new Date(a.views) - new Date(b.views))
     .reverse()
-    .slice(0,20);
+    .slice(0, 20);
   return (
     <div className="mr-background">
       <div className="mr-carousel">
