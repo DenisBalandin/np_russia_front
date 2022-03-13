@@ -1,13 +1,40 @@
 "use strict";
 
-import React, { Component } from "react";
-
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 const Menu = () => {
+  const [visibility, setVisibility] = useState("hidden");
+  const [position, setPosition] = useState("absolute");
+  useEffect(() => {
+    setInterval(() => {
+      if (typeof window !== "undefined") {
+        setVisibility(
+          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+            ? "hidden"
+            : "visible"
+        );
+        setPosition(
+          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+            ? "absolute"
+            : "relative"
+        );
+      }
+    }, 100);
+  });
   return (
     <>
       <div className="menu-background">
         <div className="menu">
           <ul>
+            <li className="logo-box">
+              <div>
+                <Link href="/">
+                  <a>
+                    <span className="logo">NP Russia</span>
+                  </a>
+                </Link>
+              </div>
+            </li>
             <li>Кино</li>
             <li>Искусство</li>
             <li>Современная музыка</li>
@@ -44,9 +71,23 @@ const Menu = () => {
             list-style-type: none;
             line-height: 4rem;
             border: 1px solid grey;
+            padding-left: 1rem;
+          }
+          .logo-box {
+            position: absolute;
+            visibility: hidden;
+          }
+          .logo {
+            text-shadow: 3px 3px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+              -1px 1px 0 #fff, 1px 1px 0 #fff;
+            color: black;
           }
         }
         @media (min-width: 800px) {
+          .logo-box {
+            position: ${position};
+            visibility: ${visibility};
+          }
           .menu-background {
             min-height: 3rem;
           }
@@ -66,6 +107,7 @@ const Menu = () => {
             align-items: center;
           }
           .menu li {
+            padding: 0;
             float: left;
             border: none;
             margin: 1rem;
@@ -76,6 +118,15 @@ const Menu = () => {
           }
           .menu li:hover {
             color: #cccccc;
+          }
+        }
+        @media (min-width: 1450px) {
+          .logo-box {
+            position: absolute;
+            left: 1rem;
+          }
+          .logo {
+            font-size: 1.4rem;
           }
         }
       `}</style>

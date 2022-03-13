@@ -6,6 +6,7 @@ import Menu from '../components/home/Menu'
 import styles from '../styles/Home.module.css'
 import News from '../components/home/News'
 import Blog from '../components/home/Blog'
+import Footer from '../components/home/Footer'
 export default function Home() {
   return (
     <div>
@@ -23,6 +24,7 @@ export default function Home() {
           <News />
       </div>
       <Blog />
+      <Footer />
         <style jsx>{`
           @media (min-width: 0px){
             .Menu {
