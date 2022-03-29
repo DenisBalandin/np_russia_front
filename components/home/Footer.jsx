@@ -5,153 +5,191 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
-    const firstColumn = [{link: "/news", text: "Новости"},
-                         {link: "/photo", text: "Фотопроекты"},
-                         {link: "archives.nprussia.org", text: "Архив NPRussia.org"}];
-    const secondColumn = [{link: "/about", text: "О проекте"},
-                          {link: "/authors", text: "Авторы"},
-                          {link: "/sponsors", text: "Попечители"},
-                          {link: "/help", text: "Помоги сайту"},
-                          {link: "/thanks", text: "Нам помогают"},
-                          {link: "/partnership", text: "Партнёрство"},
-                          {link: "/mailing", text: "Рассылка"}];
-    const specialProjects = [{link: "/young_russia", text: "Молодая Россия"},
-                             {link: "/bridges", text: "Мосты"},
-                             {link: "/portraits", text: "Онлайн-портреты современных немецких"}];
-    return (
-        <footer>
-            <div className="double-box">
-                <div className="info-box">
-                    <div className="logo-box flex-item">
-                        <div>
-                            <Link href="/">
-                                <a>
-                                    <span  className="logo">NP Russia</span>
-                                </a>
-                            </Link>
-                        </div>
-                        <div className="about">
-                            <Link href="/about">
-                                <a>
-                                    О проекте
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="social flex-item wide">
-                        {firstColumn.map((item, index) => 
-                            index == firstColumn.length-1? 
-                                <Link href={item.link} key={index}>
-                                    <a className="last">
-                                        <p className="soc-text">{item.text}</p>
-                                    </a>
-                                </Link>
-                            :
-                                <Link href={item.link} key={index}>
-                                    <a>
-                                        <p className="soc-text">{item.text}</p>
-                                    </a>
-                                </Link>
-                        )}
-                    </div>
-                    <div className="social flex-item wide">
-                        {secondColumn.map((item, index) => 
-                            index == secondColumn.length-1? 
-                                <Link href={item.link} key={index}>
-                                    <a className="last">
-                                        <p className="soc-text">{item.text}</p>
-                                    </a>
-                                </Link>
-                            :
-                                <Link href={item.link} key={index}>
-                                    <a>
-                                        <p className="soc-text">{item.text}</p>
-                                    </a>
-                                </Link>
-                        )}
-                    </div>
-                    <div className="social flex-item">
-                        <Link href="fb.com/">
-                            <a>
-                                <Image src="/images/icons/footer_soc_fb.png" width="25%" height="25%" layout="fixed" />
-                                <p className="soc-text soc">Facebook</p>
-                            </a>
-                        </Link>
-                        <Link href="vk.com/">
-                            <a>
-                                <Image src="/images/icons/footer_soc_vk.png" width="25%" height="25%" layout="fixed" />
-                                <p className="soc-text soc">Вконтакте</p>
-                            </a>
-                        </Link>
-                        <Link href="tg.com/">
-                            <a>
-                                <Image src="/images/icons/footer_soc_tg.png" width="25%" height="25%" layout="fixed" />
-                                <p className="soc-text soc">Telegram</p>
-                            </a>
-                        </Link>
-                        <Link href="tw.com/">
-                            <a>
-                                <Image src="/images/icons/footer_soc_tw.png" width="25%" height="25%" layout="fixed" />
-                                <p className="soc-text soc">Twitter</p>
-                            </a>
-                        </Link>
-                        <Link href="/feed">
-                            <a className="last">
-                                <Image src="/images/icons/footer_soc_rss.png" width="25%" height="25%" layout="fixed" />
-                                <p className="soc-text soc">RSS</p>
-                            </a>
-                        </Link>
-                    </div>
-                    <div className="social flex-item wide">
-                        <a className="special"><p className="soc-text">Спецпроекты NPRussia.org</p></a>
-                        {specialProjects.map((item, index) => 
-                            index == specialProjects.length-1? 
-                                <Link href={item.link} key={index}>
-                                    <a className="last">
-                                        <p className="soc-text">{item.text}</p>
-                                    </a>
-                                </Link>
-                            :
-                                <Link href={item.link} key={index}>
-                                    <a>
-                                        <p className="soc-text">{item.text}</p>
-                                    </a>
-                                </Link>
-                        )}
-                    </div>
-                    <div className="additional-mob flex-item">
-                        <p className="add-text rights">
-                            © 2022 NPRussia.org. Все права защищены.
-                        </p>
-                        <p className="add-text">
-                            Сделано при помощи <Link href="nextjs.com/"><a className="white">Next.js</a></Link>
-                        </p>
-                    </div>
-                </div>
-                <div className="additional-info">
-                    <p className="add-text rights">
-                        © 2022 NPRussia.org. Все права защищены.
-                    </p>
-                    <p className="add-text white link">
-                        <Link href="/legal">
-                            <a>
-                                Правовая информация
-                            </a>
-                        </Link>
-                    </p>
-                    <p className="add-text">
-                        Сделано при помощи <Link href="nextjs.com/"><a className="white">Next.js</a></Link>
-                    </p>
-                    <div className="right">
-                        <Link href="www.liveinternet.ru/click">
-                            <a>
-                                <Image src="/images/icons/hit.gif" width="35%" height="35%" />
-                            </a>
-                        </Link>
-                    </div>
-                </div>
+  const firstColumn = [
+    { link: "/news", text: "Новости" },
+    { link: "/photo", text: "Фотопроекты" },
+    { link: "archives.nprussia.org", text: "Архив NPRussia.org" },
+  ];
+  const secondColumn = [
+    { link: "/about", text: "О проекте" },
+    { link: "/authors", text: "Авторы" },
+    { link: "/sponsors", text: "Попечители" },
+    { link: "/help", text: "Помоги сайту" },
+    { link: "/thanks", text: "Нам помогают" },
+    { link: "/partnership", text: "Партнёрство" },
+    { link: "/mailing", text: "Рассылка" },
+  ];
+  const specialProjects = [
+    { link: "/young_russia", text: "Молодая Россия" },
+    { link: "/bridges", text: "Мосты" },
+    { link: "/portraits", text: "Онлайн-портреты современных немецких" },
+  ];
+  return (
+    <footer>
+      <div className="double-box">
+        <div className="info-box">
+          <div className="logo-box flex-item">
+            <div>
+              <Link href="/">
+                <a>
+                  <span className="logo">NP Russia</span>
+                </a>
+              </Link>
             </div>
-            <style jsx>{`
+            <div className="about">
+              <Link href="/about">
+                <a>О проекте</a>
+              </Link>
+            </div>
+          </div>
+          <div className="social flex-item wide">
+            {firstColumn.map((item, index) =>
+              index == firstColumn.length - 1 ? (
+                <Link href={item.link} key={index}>
+                  <a className="last">
+                    <p className="soc-text">{item.text}</p>
+                  </a>
+                </Link>
+              ) : (
+                <Link href={item.link} key={index}>
+                  <a>
+                    <p className="soc-text">{item.text}</p>
+                  </a>
+                </Link>
+              )
+            )}
+          </div>
+          <div className="social flex-item wide">
+            {secondColumn.map((item, index) =>
+              index == secondColumn.length - 1 ? (
+                <Link href={item.link} key={index}>
+                  <a className="last">
+                    <p className="soc-text">{item.text}</p>
+                  </a>
+                </Link>
+              ) : (
+                <Link href={item.link} key={index}>
+                  <a>
+                    <p className="soc-text">{item.text}</p>
+                  </a>
+                </Link>
+              )
+            )}
+          </div>
+          <div className="social flex-item">
+            <Link href="fb.com/">
+              <a>
+                <Image
+                  src="/images/icons/footer_soc_fb.png"
+                  width="25%"
+                  height="25%"
+                  layout="fixed"
+                />
+                <p className="soc-text soc">Facebook</p>
+              </a>
+            </Link>
+            <Link href="vk.com/">
+              <a>
+                <Image
+                  src="/images/icons/footer_soc_vk.png"
+                  width="25%"
+                  height="25%"
+                  layout="fixed"
+                />
+                <p className="soc-text soc">Вконтакте</p>
+              </a>
+            </Link>
+            <Link href="tg.com/">
+              <a>
+                <Image
+                  src="/images/icons/footer_soc_tg.png"
+                  width="25%"
+                  height="25%"
+                  layout="fixed"
+                />
+                <p className="soc-text soc">Telegram</p>
+              </a>
+            </Link>
+            <Link href="tw.com/">
+              <a>
+                <Image
+                  src="/images/icons/footer_soc_tw.png"
+                  width="25%"
+                  height="25%"
+                  layout="fixed"
+                />
+                <p className="soc-text soc">Twitter</p>
+              </a>
+            </Link>
+            <Link href="/feed">
+              <a className="last">
+                <Image
+                  src="/images/icons/footer_soc_rss.png"
+                  width="25%"
+                  height="25%"
+                  layout="fixed"
+                />
+                <p className="soc-text soc">RSS</p>
+              </a>
+            </Link>
+          </div>
+          <div className="social flex-item wide">
+            <a className="special">
+              <p className="soc-text">Спецпроекты NPRussia.org</p>
+            </a>
+            {specialProjects.map((item, index) =>
+              index == specialProjects.length - 1 ? (
+                <Link href={item.link} key={index}>
+                  <a className="last">
+                    <p className="soc-text">{item.text}</p>
+                  </a>
+                </Link>
+              ) : (
+                <Link href={item.link} key={index}>
+                  <a>
+                    <p className="soc-text">{item.text}</p>
+                  </a>
+                </Link>
+              )
+            )}
+          </div>
+          <div className="additional-mob flex-item">
+            <p className="add-text rights">
+              © 2022 NPRussia.org. Все права защищены.
+            </p>
+            <p className="add-text">
+              Сделано при помощи{" "}
+              <Link href="nextjs.com/">
+                <a className="white">Next.js</a>
+              </Link>
+            </p>
+          </div>
+        </div>
+        <div className="additional-info">
+          <p className="add-text rights">
+            © 2022 NPRussia.org. Все права защищены.
+          </p>
+          <p className="add-text white link">
+            <Link href="/legal">
+              <a>Правовая информация</a>
+            </Link>
+          </p>
+          <p className="add-text">
+            Сделано при помощи{" "}
+            <Link href="nextjs.com/">
+              <a className="white">Next.js</a>
+            </Link>
+          </p>
+          <div className="right">
+            <Link href="www.liveinternet.ru/click">
+              <a>
+                <Image src="/images/icons/hit.gif" width="35%" height="35%" />
+              </a>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
                 footer {
                     position: relative;
                     background-color: #1a1a1a;
@@ -348,7 +386,7 @@ const Footer = () => {
                     }
                 }
             `}</style>
-        </footer>
-    )
-}
+    </footer>
+  );
+};
 export default Footer;

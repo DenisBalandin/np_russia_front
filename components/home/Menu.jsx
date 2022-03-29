@@ -9,8 +9,16 @@ const Menu = (langToggle, query) => {
   useEffect(() => {
     setInterval(() => {
       if (typeof window !== "undefined") {
-        setVisibility(document.getElementsByClassName("Menu")[0].getBoundingClientRect().top ? "hidden" : "visible");
-        setPosition(document.getElementsByClassName("Menu")[0].getBoundingClientRect().top ? "absolute" : "relative");
+        setVisibility(
+          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+            ? "hidden"
+            : "visible"
+        );
+        setPosition(
+          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+            ? "absolute"
+            : "relative"
+        );
       }
     }, 100)
   }, []);
@@ -22,9 +30,9 @@ const Menu = (langToggle, query) => {
             <li className="logo-box">
               <div>
                 <Link href="/">
-                    <a>
-                        <span  className="logo">NP Russia</span>
-                    </a>
+                  <a>
+                    <span className="logo">NP Russia</span>
+                  </a>
                 </Link>
               </div>
             </li>

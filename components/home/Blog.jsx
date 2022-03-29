@@ -5,38 +5,39 @@ import MostRead from "./MostRead";
 import Post from "./Post";
 import BlogService from "../../lib/services/BlogService";
 import Pagination from "./Pagination";
-const Blog = ({ startingPage=1 }) => {
+const Blog = ({ startingPage = 1 }) => {
   const [page, setPage] = useState(startingPage);
   const [blogData, setBlogData] = useState([]);
   const [pageData, setPageData] = useState([]);
   useEffect(() => {
     const blogCheckResponse = async () => {
-      const start = (page-1)*20;
+      const start = (page - 1) * 20;
       const blogResponse = await BlogService.get();
       setBlogData(blogResponse);
-      setPageData(blogResponse.slice(start, start+20));
+      setPageData(blogResponse.slice(start, start + 20));
     };
     blogCheckResponse();
   }, []);
   const changePage = (i) => {
-    setPageData(blogData.slice((i-1)*20, (i-1)*20+20));
+    setPageData(blogData.slice((i - 1) * 20, (i - 1) * 20 + 20));
     setPage(i);
-  }
+  };
   const addPosts = () => {
     setPageData(blogData.slice(0, pageData.length + 20));
-  }
-  const lastPage = blogData.length%20 ?
-    Math.floor(blogData.length/20)+1 : 
-    Math.floor(blogData.length/20);
+  };
+  const lastPage =
+    blogData.length % 20
+      ? Math.floor(blogData.length / 20) + 1
+      : Math.floor(blogData.length / 20);
   return (
     <div className="blog-background">
       <div className="list">
-          <div className="post-list">
-            {pageData &&
-              pageData
-                .slice(0, 12)
-                .map((item) => <Post key={item.id} data={item} />)}
-          </div>
+        <div className="post-list">
+          {pageData &&
+            pageData
+              .slice(0, 12)
+              .map((item) => <Post key={item.id} data={item} />)}
+        </div>
         <div className="most-read">
           <MostRead />
         </div>

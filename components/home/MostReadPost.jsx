@@ -18,7 +18,12 @@ const MostReadPost = ({ id, arr }) => {
         <a>
           <div className="mrp-image">
             <div className="pic">
-                  <Image priority src={post.image} layout="fill" objectFit="cover" />
+              <Image
+                priority
+                src={post.image}
+                layout="fill"
+                objectFit="cover"
+              />
             </div>
           </div>
         </a>
@@ -73,12 +78,12 @@ const MostReadPost = ({ id, arr }) => {
           cursor: pointer;
           transition: all 0.2s;
         }
-        .text{
+        .text {
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 2; /* number of lines to show */
-                  line-clamp: 2; 
+          line-clamp: 2;
           -webkit-box-orient: vertical;
         }
         .mrp-title:hover {
@@ -86,7 +91,7 @@ const MostReadPost = ({ id, arr }) => {
         }
         .mrp-views {
           min-height: 2rem;
-          margin-top: auto; 
+          margin-top: auto;
           display: flex;
           justify-content: center;
           display: flex;

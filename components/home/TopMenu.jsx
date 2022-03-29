@@ -1,4 +1,3 @@
- 
 import Link from "next/link";
 import Image from "next/dist/client/image";
 import MenuButton from "./MenuButton";
@@ -19,8 +18,6 @@ const TopMenu = () => {
     const [clicked, setClick] = useState(false);
     const query = useRouter().query;
     const langToggle = () => {
-    console.log(query)
-
         query.l = query.l == 'en' ? 'ru' : 'en';
     }
     const [menu, setMenu] = useState(false);
