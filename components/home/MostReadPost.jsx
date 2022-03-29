@@ -11,9 +11,10 @@ const MostReadPost = ({ id, arr }) => {
     id = id - arr.length;
   }
   const post = arr[id];
+  const slug = `/post/${post.slug}`
   return (
     <div className="mrp-background" title={post.title}>
-      <Link href={post.title}>
+      <Link href={slug}>
         <a>
           <div className="mrp-image">
             <div className="pic">
@@ -28,7 +29,7 @@ const MostReadPost = ({ id, arr }) => {
         </a>
       </Link>
       <div className="mrp-title">
-        <Link href={post.title}>
+        <Link href={slug}>
           <a>
             <p className="text">{post.title}</p>
           </a>

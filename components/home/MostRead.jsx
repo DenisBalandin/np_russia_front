@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MostReadPost from "./MostReadPost";
 import BlogService from "../../lib/services/BlogService";
-const MostRead = () => {
+const MostRead = ({newest}) => {
   const [mrData, setMrData] = useState([]);
   useEffect(() => {
     const mrCheckResponse = async () => {
@@ -11,16 +11,23 @@ const MostRead = () => {
     mrCheckResponse();
   }, []);
   const [count, setCount] = useState(0);
-  const arr = mrData
-    .slice()
-    .sort((a, b) => new Date(a.views) - new Date(b.views))
-    .reverse()
-    .slice(0, 20);
+  const arr = newest ?
+    mrData
+      .slice()
+      .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+      .reverse()
+      .slice(0,20)
+  :
+    mrData
+      .slice()
+      .sort((a, b) => a.views - b.views)
+      .reverse()
+      .slice(0,20);
   return (
     <div className="mr-background">
       <div className="mr-carousel">
         <div className="mr-top">
-          <div className="title">Самое читаемое</div>
+          <div className="title">Самое {newest ? 'новое': 'читаемое'}</div>
           <div className="arrows">
             <div className="arrow" onClick={() => setCount(count - 1)}>
               ←

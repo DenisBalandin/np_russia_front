@@ -14,7 +14,7 @@ const News = () => {
     };
     newsCheckResponse();
   }, []);
-
+  
   useEffect(() => {
     const newsCheckResponse = async () => {
       const newsResponse = await NewsService.get();
@@ -131,9 +131,27 @@ const News = () => {
           gap: 1rem;
           margin-left: auto;
         }
-        @media (min-width: 77rem) {
-          .container {
+        .allNews {
+          position: absolute;
+          visibility: hidden;
+        }
+        @media (min-width:77rem) {
+          .container{
             padding: 0;
+          }
+        }
+        @media (min-width:600px) {
+          .allNews {
+            position: relative;
+            visibility: visible;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: .6rem;
+            letter-spacing: 1px;
+          }
+          .allNews:hover {
+              color: red;
+              cursor: pointer;
           }
         }
       `}</style>
