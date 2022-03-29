@@ -19,8 +19,6 @@ const TopMenu = () => {
     const [clicked, setClick] = useState(false);
     const query = useRouter().query;
     const langToggle = () => {
-    console.log(query)
-
         query.l = query.l == 'en' ? 'ru' : 'en';
     }
     const [menu, setMenu] = useState(false);

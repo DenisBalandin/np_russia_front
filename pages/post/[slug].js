@@ -9,7 +9,6 @@ import MostRead from '../../components/home/MostRead'
 import Router, {useRouter} from 'next/router'
 export async function getStaticPaths() {
   const paths = await getAllPostIds()
-  // console.log(paths)
   return {
     paths,
     fallback: false
@@ -17,7 +16,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params)
   const postData = await getPostData(params.slug);
   return {
     props: {
@@ -28,7 +26,6 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ postData }) {
   const post = postData.post;
-  // console.log(post)
   return (
     <div>
       <TopMenu />

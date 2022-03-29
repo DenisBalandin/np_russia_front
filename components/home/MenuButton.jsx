@@ -4,7 +4,6 @@ import React from "react";
 import Router, { useRouter } from "next/router";
 
 const MenuButton = ({link, text, img, toggler, langToggle}) => {
-    console.log(useRouter().query)
     // const url = useRouter().asPath;
     const queryButton = useRouter().query;
     if (toggler) {
