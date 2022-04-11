@@ -13,6 +13,7 @@ const Blog = ({ startingPage = 1 }) => {
     const blogCheckResponse = async () => {
       const start = (page - 1) * 20;
       const blogResponse = await BlogService.get();
+      console.log(blogResponse)
       setBlogData(blogResponse);
       setPageData(blogResponse.slice(start, start + 20));
     };

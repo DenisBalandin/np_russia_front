@@ -6,9 +6,9 @@ import MainImage from '../../components/post/MainImage'
 import Content from '../../components/post/Content'
 import Footer from '../../components/home/Footer'
 import MostRead from '../../components/home/MostRead'
-import Router, {useRouter} from 'next/router'
 export async function getStaticPaths() {
   const paths = await getAllPostIds()
+  console.log(paths)
   return {
     paths,
     fallback: false
@@ -25,6 +25,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ postData }) {
+  console.log(postData)
   const post = postData.post;
   return (
     <div>

@@ -5,10 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import dateProcessor from "../../lib/dateProcessor";
 import views from "/public/images/views.png";
+
+// import imgSrc from '/data/files/images/blog/detailed_picture (19).jpg'
 const Post = ({data}) => {
-    const pageSrc = `/post/${data.slug}`;  /* to be changed */
+    const pageSrc = `/post/${data.link}`;  /* to be changed */
     const categoryLink = data.category; /* to be changed */
-    const imgSrc = data.image;
+    const imgSrc = '/data/files/images/blog/detailed_picture (19).jpg';
     return (
       <div className="post-background">
         <Link href={pageSrc}>
@@ -36,7 +38,7 @@ const Post = ({data}) => {
         </a>
       </Link>
       <div className="date">
-        {dateProcessor(data.createdAt)}
+        {dateProcessor(data.date)}
         <Link href={pageSrc}>
           <a>
             <div className="views">
