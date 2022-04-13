@@ -8,7 +8,11 @@ const NewsStrip = () => {
     useEffect(() => {
         const newsCheckResponse = async () => {
             const newsResponse = await NewsService.get();
-            setNewsData(newsArray(newsResponse.reverse().slice(0,5)));
+            setNewsData(
+                newsArray(
+                    newsResponse.slice(0,5)
+                )
+            );
         };
         newsCheckResponse();
     }, [])
@@ -29,7 +33,7 @@ const NewsStrip = () => {
                             {item.time}
                         </div>
                         <div className="ns-news">
-                            <Link href={"/news/" + item.slug}>
+                            <Link href={"/news/" + item.link}>
                                 <a>
                                     {item.title}
                                 </a>

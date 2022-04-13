@@ -34,7 +34,7 @@ export default function Post({ postData }) {
         <Menu />
       </div>
       <hr />
-      <TopCategory category={post.category} viewCount={post.views} date={post.createdAt} />
+      <TopCategory category={post.category} viewCount={post.views} date={post.date} />
       <MainImage post={post} />
       <Content article={post.text} />
       <div className="newest">

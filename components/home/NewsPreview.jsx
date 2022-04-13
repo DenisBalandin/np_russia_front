@@ -3,6 +3,7 @@ import dateProcessor from "../../lib/dateProcessor";
 
 const NewsPreview = ({ id, item }) => {
   const { date, description, link, text, title } = item;
+  console.log(item)
   return (
     <div className="news-card">
       <p className="date">{dateProcessor(date)}</p>
