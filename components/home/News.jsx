@@ -14,11 +14,11 @@ const News = () => {
     };
     newsCheckResponse();
   }, []);
-  
+
   useEffect(() => {
     const newsCheckResponse = async () => {
       const newsResponse = await NewsService.get();
-      setNewsData(newsResponse.slice(sliderCount));
+      setNewsData(newsResponse?.slice(sliderCount));
     };
     newsCheckResponse();
   }, [sliderCount]);
@@ -58,7 +58,7 @@ const News = () => {
           </div>
         </div>
         <div className="carousel">
-          {newsData.map((item, id) => (
+          {newsData?.map((item, id) => (
             <div key={item.id}>
               <NewsPreview id={id} item={item} />
             </div>
@@ -135,23 +135,23 @@ const News = () => {
           position: absolute;
           visibility: hidden;
         }
-        @media (min-width:77rem) {
-          .container{
+        @media (min-width: 77rem) {
+          .container {
             padding: 0;
           }
         }
-        @media (min-width:600px) {
+        @media (min-width: 600px) {
           .allNews {
             position: relative;
             visibility: visible;
             text-transform: uppercase;
             font-weight: bold;
-            font-size: .6rem;
+            font-size: 0.6rem;
             letter-spacing: 1px;
           }
           .allNews:hover {
-              color: red;
-              cursor: pointer;
+            color: red;
+            cursor: pointer;
           }
         }
       `}</style>

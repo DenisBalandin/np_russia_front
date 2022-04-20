@@ -4,51 +4,39 @@ import newsArray from "../../lib/newsArray";
 import NewsService from "../../lib/services/NewsService";
 
 const NewsStrip = () => {
-    const [newsData, setNewsData] = useState([]);
-    useEffect(() => {
-        const newsCheckResponse = async () => {
-            const newsResponse = await NewsService.get();
-            setNewsData(
-                newsArray(
-                    newsResponse.slice(0,5)
-                )
-            );
-        };
-        newsCheckResponse();
-    }, [])
-    return (
-        <div className="ns-background">
-            <div className="ns-title">Новости</div>
-            {
-            newsData.map((item, index) => 
-                typeof item == 'string' ?
-                    <div className="ns-inner" key={index}>
-                        <div className="ns-date">
-                            {item}
-                        </div>
-                    </div>
-                :
-                    <div className="ns-preview ns-inner" key={index}>
-                        <div className="ns-time ns-date">
-                            {item.time}
-                        </div>
-                        <div className="ns-news">
-                            <Link href={"/news/" + item.link}>
-                                <a>
-                                    {item.title}
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
-            )}
-            <div className="ns-bottom">
-                <Link href="/news">
-                    <a>
-                        Все новости
-                    </a>
-                </Link>
+  const [newsData, setNewsData] = useState([]);
+  useEffect(() => {
+    const newsCheckResponse = async () => {
+      const newsResponse = await NewsService.get();
+      setNewsData(newsArray(newsResponse?.slice(0, 5)));
+    };
+    newsCheckResponse();
+  }, []);
+  return (
+    <div className="ns-background">
+      <div className="ns-title">Новости</div>
+      {newsData?.map((item, index) =>
+        typeof item == "string" ? (
+          <div className="ns-inner" key={index}>
+            <div className="ns-date">{item}</div>
+          </div>
+        ) : (
+          <div className="ns-preview ns-inner" key={index}>
+            <div className="ns-time ns-date">{item.time}</div>
+            <div className="ns-news">
+              <Link href={"/news/" + item.link}>
+                <a>{item.title}</a>
+              </Link>
             </div>
-            <style jsx>{`
+          </div>
+        )
+      )}
+      <div className="ns-bottom">
+        <Link href="/news">
+          <a>Все новости</a>
+        </Link>
+      </div>
+      <style jsx>{`
                 .ns-background {
                     width: 100%;
                     border: 1px solid #e6e6e6;
@@ -113,7 +101,7 @@ const NewsStrip = () => {
                     padding: 0 1rem !important;
                 }
             `}</style>
-        </div>
-    )
-}
+    </div>
+  );
+};
 export default NewsStrip;
