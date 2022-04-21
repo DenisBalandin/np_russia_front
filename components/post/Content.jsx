@@ -87,6 +87,9 @@ const Content = ({article}) => {
                 }
                 .content-inner {
                     max-width: ${contentWidth}px !important;
+                    font-size: min(1.3rem);
+                    line-height: min(2rem);
+                    font-weight: 200;
                 }
             `}</style>
         </div>

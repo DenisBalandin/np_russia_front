@@ -11,7 +11,7 @@ const MostReadPost = ({ id, arr }) => {
     id = id - arr.length;
   }
   const post = arr[id];
-  const slug = `/post/${post.slug}`
+  const slug = `/post/${post.slug}`;
   return (
     <div className="mrp-background" title={post.title}>
       <Link href={slug}>

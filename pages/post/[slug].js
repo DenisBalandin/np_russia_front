@@ -1,54 +1,57 @@
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import TopMenu from '../../components/home/TopMenu'
-import Menu from '../../components/home/Menu'
-import TopCategory from '../../components/post/TopCategory'
-import MainImage from '../../components/post/MainImage'
-import Content from '../../components/post/Content'
-import Footer from '../../components/home/Footer'
-import MostRead from '../../components/home/MostRead'
-import Router, {useRouter} from 'next/router'
-export async function getStaticPaths() {
-  const paths = await getAllPostIds()
-  return {
-    paths,
-    fallback: false
-  }
-}
+import { getAllPostIds, getPostData } from "../../lib/posts";
+import TopMenu from "../../components/home/TopMenu";
+import Menu from "../../components/home/Menu";
+import TopCategory from "../../components/post/TopCategory";
+import MainImage from "../../components/post/MainImage";
+import Content from "../../components/post/Content";
+import Footer from "../../components/home/Footer";
+import MostRead from "../../components/home/MostRead";
+// export async function getStaticPaths() {
+//   const paths = await getAllPostIds();
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.slug);
-  return {
-    props: {
-      postData
-    }
-  }
-}
+// export async function getStaticProps({ params }) {
+//   const postData = await getPostData(params?.slug);
+//   return {
+//     props: {
+//       postData,
+//     },
+//   };
+// }
 
 export default function Post({ postData }) {
-  const post = postData.post;
+  // const post = postData.post;
   return (
     <div>
-      <TopMenu />
+      {/* <TopMenu />
       <div className="Menu">
         <Menu />
       </div>
       <hr />
-      <TopCategory category={post.category} viewCount={post.views} date={post.createdAt} />
+      <TopCategory
+        category={post.category}
+        viewCount={post.views}
+        date={post.date}
+      />
       <MainImage post={post} />
       <Content article={post.text} />
       <div className="newest">
         <MostRead newest />
       </div>
-      <Footer />
+      <Footer /> */}
       <style jsx>{`
-        @media (min-width: 0px){
+        @media (min-width: 0px) {
           .Menu {
             visibility: hidden;
             position: absolute;
           }
           hr {
             width: 100%;
-            height: .3rem;
+            height: 0.3rem;
             background-color: black;
             border: 0;
             margin: 0;
@@ -70,10 +73,10 @@ export default function Post({ postData }) {
             position: sticky;
             height: auto;
             top: 0;
-            z-index:2;
+            z-index: 2;
           }
         }
       `}</style>
     </div>
-  )
+  );
 }
