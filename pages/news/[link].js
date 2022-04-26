@@ -1,4 +1,6 @@
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import React, { useState, useEffect } from "react";
+import NewsService from "../../lib/services/NewsService";
+import { useRouter } from "next/router";
 import TopMenu from "../../components/home/TopMenu";
 import Menu from "../../components/home/Menu";
 import TopCategory from "../../components/post/TopCategory";
@@ -6,43 +8,37 @@ import MainImage from "../../components/post/MainImage";
 import Content from "../../components/post/Content";
 import Footer from "../../components/home/Footer";
 import MostRead from "../../components/home/MostRead";
-// export async function getStaticPaths() {
-//   const paths = await getAllPostIds();
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
 
-// export async function getStaticProps({ params }) {
-//   const postData = await getPostData(params?.slug);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
+const News = () => {
+  const [newsData, setNewsData] = useState([]);
+  const router = useRouter();
 
-export default function Post({ postData }) {
-  // const post = postData.post;
+  useEffect(() => {
+    const newsCheckResponse = async () => {
+      const { link } = router.query;
+      const newsResponse = await NewsService.getOneByLink(link);
+      setNewsData(newsResponse);
+    };
+    if (newsData?.length <= 0) newsCheckResponse();
+  });
   return (
     <div>
-      {/* <TopMenu />
+      <TopMenu />
       <div className="Menu">
         <Menu />
       </div>
       <hr />
       <TopCategory
-        category={post.category}
-        viewCount={post.views}
-        date={post.date}
+        category={newsData?.category}
+        viewCount={newsData?.views}
+        date={newsData?.date}
       />
-      <MainImage post={post} />
-      <Content article={post.text} />
+      <MainImage post={newsData} />
+      <Content article={newsData?.text} />
       <div className="newest">
         <MostRead newest />
       </div>
-      <Footer /> */}
+      <Footer />
       <style jsx>{`
         @media (min-width: 0px) {
           .Menu {
@@ -79,4 +75,6 @@ export default function Post({ postData }) {
       `}</style>
     </div>
   );
-}
+};
+
+export default News;

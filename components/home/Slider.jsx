@@ -139,7 +139,7 @@ const Slider = () => {
                   </div>
                 </div>
               </div>
-              <Link href={"/post/" + mainSlideData.slug}>
+              <Link href={"/post/" + mainSlideData.link}>
                 <a>
                   <Image
                     priority
