@@ -20,7 +20,7 @@ const Menu = (langToggle, query) => {
             : "relative"
         );
       }
-    }, 100)
+    }, 100);
   }, []);
   return (
     <>
@@ -45,27 +45,23 @@ const Menu = (langToggle, query) => {
             <li>Общество</li>
             <li>Наука</li>
             <li>Colta Specials</li>
-            {query.l === 'en' ?
+            {query.l === "en" ? (
               <li className="lang">
-                <Link href={{query: query}} onClick={() => langToggle()} >
-                  <a>
-                    Русский
-                  </a>
+                <Link href={{ query: query }} onClick={() => langToggle()}>
+                  <a>Русский</a>
                 </Link>
               </li>
-            :
+            ) : (
               <li className="lang">
-                <Link href={{query: query}} onClick={() => langToggle()} >
-                  <a>
-                    English
-                  </a>
+                <Link href={{ query: query }} onClick={() => langToggle()}>
+                  <a>English</a>
                 </Link>
               </li>
-            }
+            )}
           </ul>
         </div>
       </div>
-      
+
       <style jsx>{`
         @media (min-width: 0px) {
           .menu {
@@ -97,12 +93,8 @@ const Menu = (langToggle, query) => {
             visibility: hidden;
           }
           .logo {
-            text-shadow:
-                3px  3px 0 #fff,
-                -1px -1px 0 #fff,
-                1px -1px 0 #fff,
-                -1px  1px 0 #fff,
-                1px  1px 0 #fff;
+            text-shadow: 3px 3px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+              -1px 1px 0 #fff, 1px 1px 0 #fff;
             color: black;
           }
         }
