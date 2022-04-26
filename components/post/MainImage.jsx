@@ -2,13 +2,14 @@ import React from "react";
 import Link from "next/link";
 
 const MainImage = ({ post }) => {
-  post?.by = ["Автор текста", "Text Author", "he", "she"];
-  post?.imageDesc =
+  const authorDefault = ["Автор текста", "Text Author", "he", "she"];
+  const imageDefault =
     "Аньоло Бронзино. Аллегорический портрет Данте. 1532–1533 (деталь)";
-  post?.imageRights = "© Предоставлено пресс-службой Центра Вознесенского";
+  const imageRightsDefault =
+    "© Предоставлено пресс-службой Центра Вознесенского";
   const authors = post?.by
     ? typeof post?.by == "string"
-      ? [post?.by]
+      ? [authorDefault]
       : post?.by
     : "";
 
@@ -35,7 +36,7 @@ const MainImage = ({ post }) => {
         </p>
         <div className="image-box">
           <img src={post?.image} />
-           {imageDesc && <p className="image-description">{imageDesc}</p>}
+          {imageDesc && <p className="image-description">{imageDesc}</p>}
           {imageRights && <p className="image-rights">{imageRights}</p>}
         </div>
       </div>
