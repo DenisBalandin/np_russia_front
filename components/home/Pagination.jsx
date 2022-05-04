@@ -1,13 +1,27 @@
 "use strict";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import paginationArray from "../../lib/paginationArray";
+import BlogService from "../../lib/services/BlogService";
 
-const Pagination = ({ page = 1, last, moveToPage, addPosts }) => {
-  if (page > last || page <= 0) {
-    return;
-  }
-  let inner = paginationArray(page, last);
+const Pagination = ({ moveToPage }) => {
+  const [page, setPage] = useState(1);
+  const [pageArray, setPageArray] = useState([]);
+  const [countPgae, setCountPage] = useState(0);
+
+  useEffect(() => {
+    const blogCheckResponse = async () => {
+      const pageArr = [];
+      const getBlogRowsCount = await BlogService.getBlogRowsCount();
+      for (let i = 1; i <= getBlogRowsCount; i++) {
+        pageArr.push(i);
+      }
+      setPageArray(pageArr);
+      setCountPage(getBlogRowsCount);
+    };
+    blogCheckResponse();
+  }, []);
+
   return (
     <div className="pag-background">
       <div className="pag-box mob" onClick={() => addPosts()}>
@@ -19,6 +33,7 @@ const Pagination = ({ page = 1, last, moveToPage, addPosts }) => {
             className="clickable back"
             onClick={() => {
               moveToPage(page - 1);
+              setPage(page - 1);
             }}
           >
             Назад
@@ -26,7 +41,7 @@ const Pagination = ({ page = 1, last, moveToPage, addPosts }) => {
         ) : (
           <div className="unclickable back">Назад</div>
         )}
-        {inner.map((i, index) =>
+        {pageArray.slice(page - 1, page + 5).map((i, index) =>
           i == page ? (
             <div className="unclickable square" key={index}>
               {i}
@@ -36,6 +51,7 @@ const Pagination = ({ page = 1, last, moveToPage, addPosts }) => {
               className="clickable square"
               onClick={() => {
                 moveToPage(i);
+                setPage(i);
               }}
               key={index}
             >
@@ -43,13 +59,14 @@ const Pagination = ({ page = 1, last, moveToPage, addPosts }) => {
             </div>
           )
         )}
-        {page == last ? (
+        {page == countPgae ? (
           <div className="unclickable forward">Вперёд</div>
         ) : (
           <div
             className="clickable forward"
             onClick={() => {
               moveToPage(page + 1);
+              setPage(page + 1);
             }}
           >
             Вперёд
@@ -124,10 +141,12 @@ const Pagination = ({ page = 1, last, moveToPage, addPosts }) => {
           }
           .back {
             flex-grow: 1;
+            padding: 0 2rem 0 2rem;
           }
           .forward {
             flex-grow: 1;
             border-right: 1px solid gray !important;
+            padding: 0 2rem 0 2rem;
           }
           @media (min-width: 79rem) {
             .wide-screen {
