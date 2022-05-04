@@ -9,57 +9,48 @@ const Blog = ({ startingPage = 1 }) => {
   const [page, setPage] = useState(startingPage);
   const [blogData, setBlogData] = useState([]);
   const [pageData, setPageData] = useState([]);
+
   useEffect(() => {
     const blogCheckResponse = async () => {
-      const start = (page - 1) * 20;
-      const blogResponse = await BlogService.get();
+      const blogResponse = await BlogService.get(0);
+      console.log("blogResponse", blogResponse);
       setBlogData(blogResponse);
-      setPageData(blogResponse?.slice(start, start + 20));
     };
     blogCheckResponse();
   }, []);
 
   const changePage = (i) => {
-    setPageData(blogData.slice((i - 1) * 20, (i - 1) * 20 + 20));
-    setPage(i);
+    console.log("changePage", i);
+    const blogCheckResponse = async () => {
+      const blogResponse = await BlogService.get(i);
+      console.log("blogResponse", blogResponse);
+      setBlogData(blogResponse);
+    };
+    blogCheckResponse();
   };
-  const addPosts = () => {
-    setPageData(blogData.slice(0, pageData?.length + 20));
-  };
-  const lastPage =
-    blogData?.length % 20
-      ? Math.floor(blogData?.length / 20) + 1
-      : Math.floor(blogData?.length / 20);
+
   return (
     <div className="blog-background">
       <div className="list">
         <div className="post-list">
-          {pageData &&
-            pageData
+          {blogData &&
+            blogData
               .slice(0, 12)
               .map((item) => <Post key={item.id} data={item} />)}
         </div>
         <div className="most-read">
           <MostRead />
         </div>
-        {pageData?.length > 12 && (
+        {blogData?.length > 12 && (
           <div className="post-list bottom">
-            {pageData &&
-              pageData
+            {blogData &&
+              blogData
                 .slice(12)
                 .map((item) => <Post key={item.id} data={item} />)}
           </div>
         )}
         <div className="pagination">
-          {pageData?.[0] && (
-            <Pagination
-              page={page}
-              last={lastPage}
-              moveToPage={changePage}
-              addPosts={addPosts}
-            />
-          )}{" "}
-          {/* last to be changed */}
+          <Pagination moveToPage={changePage} />
         </div>
       </div>
       <style jsx>{`
