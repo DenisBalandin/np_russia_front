@@ -6,24 +6,19 @@ import Post from "./Post";
 import BlogService from "../../lib/services/BlogService";
 import Pagination from "./Pagination";
 const Blog = ({ startingPage = 1 }) => {
-  const [page, setPage] = useState(startingPage);
   const [blogData, setBlogData] = useState([]);
-  const [pageData, setPageData] = useState([]);
 
   useEffect(() => {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.get(0);
-      console.log("blogResponse", blogResponse);
       setBlogData(blogResponse);
     };
     blogCheckResponse();
   }, []);
 
   const changePage = (i) => {
-    console.log("changePage", i);
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.get(i);
-      console.log("blogResponse", blogResponse);
       setBlogData(blogResponse);
     };
     blogCheckResponse();
