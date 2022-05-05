@@ -26,7 +26,11 @@ const News = () => {
     <div className="news-background">
       <div className="container">
         <div className="heading">
-          <div className="title">Новости</div>
+          <Link href="/news">
+            <a>
+              <div className="title">Новости</div>
+            </a>
+          </Link>
           <div className="rightSide">
             <div className="allNews">
               <Link href="/news">
@@ -82,6 +86,10 @@ const News = () => {
           text-transform: uppercase;
           font-weight: bold;
           letter-spacing: 1px;
+          text-decoration: underline;
+        }
+        .title:hover {
+          text-decoration: none;
         }
         .news-background {
           justify-content: center;
@@ -124,6 +132,7 @@ const News = () => {
           max-width: 75rem;
           margin: 1.5rem auto;
         }
+
         .rightSide {
           display: flex;
           visibility: visible;
