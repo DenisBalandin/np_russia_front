@@ -11,6 +11,7 @@ const Blog = ({ startingPage = 1 }) => {
   useEffect(() => {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.get(0);
+      console.log("blogResponse", blogResponse);
       setBlogData(blogResponse);
     };
     blogCheckResponse();
