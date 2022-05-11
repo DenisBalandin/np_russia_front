@@ -36,9 +36,9 @@ const About = () => {
 
                 <p>
                   Потому что COLTA.RU (бывший{" "}
-                  <a href="https://nprussia.net/" target="blank">
+                  {/* <a href="https://nprussia.net/" target="blank">
                     OpenSpace.ru
-                  </a>
+                  </a> */}
                   ) — единственное в России большое общественное СМИ, которое
                   существует за счет трех источников:{" "}
                 </p>
@@ -63,7 +63,7 @@ const About = () => {
 
                 <p>
                   Вы можете сделать это на странице{" "}
-                  <a href="/donate">Помоги нашему сайту</a>.{" "}
+                  {/* <a href="/donate">Помоги нашему сайту</a>.{" "} */}
                 </p>
 
                 <p>

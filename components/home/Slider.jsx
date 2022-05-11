@@ -88,6 +88,7 @@ const Slider = () => {
                 height={height}
                 width={width}
                 objectFit="cover"
+                alt="views"
               />
               <div className="shader">
                 <div className="arrowBox">
@@ -100,6 +101,7 @@ const Slider = () => {
                       height="300%"
                       width="200%"
                       objectFit="fill"
+                      alt="views"
                     />
                   </div>
                 </div>
@@ -120,6 +122,7 @@ const Slider = () => {
                       height="300%"
                       width="200%"
                       objectFit="cover"
+                      alt="views"
                     />
                   </div>
                 </div>
@@ -135,6 +138,7 @@ const Slider = () => {
                       height="300%"
                       width="200%"
                       objectFit="cover"
+                      alt="views"
                     />
                   </div>
                 </div>
@@ -147,6 +151,7 @@ const Slider = () => {
                     height={height}
                     width={width}
                     objectFit="cover"
+                    alt="views"
                   />
                   <div className="mainSlideShader">
                     <div className="text">
@@ -165,6 +170,7 @@ const Slider = () => {
                 height={height}
                 width={width}
                 objectFit="cover"
+                alt="views"
               />
               <div className="shader">
                 <div className="arrowBox">
@@ -177,6 +183,7 @@ const Slider = () => {
                       height="300%"
                       width="200%"
                       objectFit="fill"
+                      alt="views"
                     />
                   </div>
                 </div>
