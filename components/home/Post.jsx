@@ -16,7 +16,13 @@ const Post = ({ data }) => {
       <Link href={pageSrc}>
         <a>
           <div className="pic">
-            <Image priority src={imgSrc} layout="fill" objectFit="cover" />
+            <Image
+              priority
+              src={imgSrc}
+              layout="fill"
+              objectFit="cover"
+              alt="views"
+            />
           </div>
         </a>
       </Link>
@@ -43,7 +49,7 @@ const Post = ({ data }) => {
           <a>
             <div className="views">
               <div className="image">
-                <Image src={views} />
+                <Image src={views} alt="" />
               </div>
               <div className="views-count">{data.views}</div>
             </div>

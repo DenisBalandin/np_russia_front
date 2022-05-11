@@ -43,6 +43,7 @@ const TopMenu = () => {
               height="35px"
               width="36px"
               onClick={() => menuToggle()}
+              alt=""
             />
           </div>
           <div className="logoMob">
@@ -51,7 +52,7 @@ const TopMenu = () => {
             </Link>
           </div>
           <div className="searchMob">
-            <Image src={searchMob} onClick={() => mobSearchToggle()} />
+            <Image src={searchMob} onClick={() => mobSearchToggle()} alt="" />
           </div>
         </div>
       ) : (
@@ -62,6 +63,7 @@ const TopMenu = () => {
               height="35px"
               width="36px"
               onClick={() => menuToggle()}
+              alt=""
             />
           </div>
           <div className="logoMob">
@@ -70,7 +72,7 @@ const TopMenu = () => {
             </Link>
           </div>
           <div className="searchMob">
-            <Image src={cross} onClick={() => backToWhiteMenu()} />
+            <Image src={cross} onClick={() => backToWhiteMenu()} alt="" />
           </div>
         </div>
       )}
@@ -116,11 +118,11 @@ const TopMenu = () => {
               <Link href="/donate">
                 <a>Помоги сайту</a>
               </Link>
-              <Image src={helper} />
+              <Image src={helper} alt="" />
             </div>
             <div className="searchBox">
               <div className="search">
-                <Image src={search} />
+                <Image src={search} alt="" />
               </div>
             </div>
           </span>

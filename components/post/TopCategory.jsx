@@ -20,7 +20,7 @@ const TopCategory = ({ category, viewCount, date }) => {
         <div className="date">{date}</div>
         <div className="views">
           <div className="image">
-            <Image src={views} />
+            <Image src={views} alt="" />
           </div>
           <div className="views-count">{viewCount}</div>
         </div>

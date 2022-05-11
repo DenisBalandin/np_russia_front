@@ -11,7 +11,12 @@ const Share = () => {
           <a>
             <div className="share-fb">
               <div className="share-img">
-                <Image src="/images/icons/s_fb.png" height="60%" width="30%" />
+                <Image
+                  src="/images/icons/s_fb.png"
+                  height="60%"
+                  width="30%"
+                  alt=""
+                />
               </div>
               <p>Facebook</p>
             </div>
@@ -21,7 +26,12 @@ const Share = () => {
           <a>
             <div className="share-tw">
               <div className="share-img">
-                <Image src="/images/icons/s_tw.png" height="60%" width="30%" />
+                <Image
+                  src="/images/icons/s_tw.png"
+                  height="60%"
+                  width="30%"
+                  alt=""
+                />
               </div>
               <p>Twitter</p>
             </div>
@@ -32,7 +42,12 @@ const Share = () => {
             <div className="share-tg">
               <div className="tg">
                 <span className="tg-inner">
-                  <Image src="/images/icons/tg.png" height="17%" width="17%" />
+                  <Image
+                    src="/images/icons/tg.png"
+                    height="17%"
+                    width="17%"
+                    alt=""
+                  />
                 </span>
               </div>
               <p>Telegram</p>

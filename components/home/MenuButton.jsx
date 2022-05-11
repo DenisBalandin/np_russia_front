@@ -25,7 +25,7 @@ const MenuButton = ({ link, text, img, toggler, langToggle }) => {
           ) : (
             <div className="image">
               <a>
-                <Image src={img} />
+                <Image src={img} alt="views" />
               </a>
             </div>
           )}

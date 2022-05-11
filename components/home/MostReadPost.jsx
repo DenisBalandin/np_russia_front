@@ -23,6 +23,7 @@ const MostReadPost = ({ id, arr }) => {
                 src={post.image}
                 layout="fill"
                 objectFit="cover"
+                alt="views"
               />
             </div>
           </div>
@@ -37,7 +38,7 @@ const MostReadPost = ({ id, arr }) => {
       </div>
       <div className="mrp-views">
         <div className="views-image">
-          <Image src={views} />
+          <Image src={views} alt="views" />
         </div>
         <div className="views-count">{post.views}</div>
       </div>

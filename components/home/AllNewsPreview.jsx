@@ -43,7 +43,7 @@ const AllNewsPreview = ({ item }) => {
           <a>
             <div className="views">
               <div className="image">
-                <Image src={views} />
+                <Image src={views} alt="views" />
               </div>
               <div className="views-count">{item?.views}</div>
             </div>
