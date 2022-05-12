@@ -5,7 +5,7 @@ import React from "react";
 import Router, { useRouter } from "next/router";
 
 const LangMenuButton = () => {
-  const [lang, setLang] = useState("ENG");
+  const [lang, setLang] = useState("En");
   const router = useRouter();
 
   useLayoutEffect(() => {
@@ -21,10 +21,10 @@ const LangMenuButton = () => {
   }, [lang]);
 
   const chnageLang = () => {
-    if (lang === "ENG") {
-      setLang("RUS");
+    if (lang === "En") {
+      setLang("Ru");
     } else {
-      setLang("ENG");
+      setLang("En");
     }
     router.reload(window.location.pathname);
   };
@@ -32,7 +32,7 @@ const LangMenuButton = () => {
     <div>
       <div className="button">
         <div className="button" onClick={() => chnageLang()}>
-          <div className="text">{lang}</div>
+          <div className="toggler text">{lang}</div>
         </div>
       </div>
       <style jsx>{`

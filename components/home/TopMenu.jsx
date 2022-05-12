@@ -17,7 +17,7 @@ import cross from "/data/files/images/header_close.png";
 
 const TopMenu = () => {
   const [clicked, setClick] = useState(false);
-  const [lang, setLang] = useState("ENG");
+  const [lang, setLang] = useState("En");
 
   useLayoutEffect(() => {
     if (sessionStorage.getItem("state")) {
@@ -26,6 +26,7 @@ const TopMenu = () => {
       sessionStorage.setItem("state", lang);
     }
   }, []);
+
   const query = useRouter().query;
   const langToggle = () => {
     query.l = query.l == "en" ? "ru" : "en";
@@ -41,13 +42,11 @@ const TopMenu = () => {
   const backToWhiteMenu = () => {
     setClick((clicked = false));
     setMenu((menu = false));
-    //setSearch(search = false) /* later */
   };
   useEffect(() => {
     sessionStorage.setItem("state", lang);
   }, [lang]);
 
-  console.log("LANG", lang);
   return (
     <>
       {!clicked ? (
@@ -106,11 +105,11 @@ const TopMenu = () => {
             </Link> */}
             <MenuButton
               link="/about"
-              text={lang === "ENG" ? "About" : "О Проекте"}
+              text={lang === "En" ? "About" : "О Проекте"}
             />
             <MenuButton
               link="/donate"
-              text={lang === "ENG" ? "Donate" : "Помоги сайту"}
+              text={lang === "En" ? "Donate" : "Помоги сайту"}
             />
             {/* <MenuButton link="/subscribe" text="Рассылка" /> */}
           </div>
