@@ -1,6 +1,9 @@
+import { useState, useEffect, useLayoutEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/dist/client/image";
 import MenuButton from "./MenuButton";
+import LangMenuButton from "./LangMenuButton";
 import Menu from "/components/home/Menu.jsx";
 import fb from "/data/files/images/fb.png";
 import telegram from "/data/files/images/telegram.png";
@@ -11,11 +14,18 @@ import search from "/data/files/images/search.png";
 import nav from "/data/files/images/nav.png";
 import searchMob from "/data/files/images/searchMob.png";
 import cross from "/data/files/images/header_close.png";
-import React, { useState } from "react";
-import { useRouter } from "next/router";
 
 const TopMenu = () => {
   const [clicked, setClick] = useState(false);
+  const [lang, setLang] = useState("ENG");
+
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("state")) {
+      setLang(sessionStorage.getItem("state"));
+    } else {
+      sessionStorage.setItem("state", lang);
+    }
+  }, []);
   const query = useRouter().query;
   const langToggle = () => {
     query.l = query.l == "en" ? "ru" : "en";
@@ -33,6 +43,11 @@ const TopMenu = () => {
     setMenu((menu = false));
     //setSearch(search = false) /* later */
   };
+  useEffect(() => {
+    sessionStorage.setItem("state", lang);
+  }, [lang]);
+
+  console.log("LANG", lang);
   return (
     <>
       {!clicked ? (
@@ -89,8 +104,14 @@ const TopMenu = () => {
                 <div className="pic">О проекте</div>
               </a>
             </Link> */}
-            <MenuButton link="/about" text="О проекте" />
-            <MenuButton link="/donate" text="Помоги сайту" />
+            <MenuButton
+              link="/about"
+              text={lang === "ENG" ? "About" : "О Проекте"}
+            />
+            <MenuButton
+              link="/donate"
+              text={lang === "ENG" ? "Donate" : "Помоги сайту"}
+            />
             {/* <MenuButton link="/subscribe" text="Рассылка" /> */}
           </div>
           <div className="logo-box">
@@ -105,18 +126,19 @@ const TopMenu = () => {
           <span className="right-side">
             <div className="links">
               {/* <MenuButton link="https://fb.com" img={fb} /> */}
-              {query.l == "en" ? (
+              {/* {query.l == "en" ? (
                 <MenuButton toggler="Ru" langToggle={langToggle} />
               ) : (
                 <MenuButton toggler="En" langToggle={langToggle} />
-              )}
+              )} */}
+              <LangMenuButton />
               {/* <MenuButton link="https://t.me" img={telegram} />
               <MenuButton link="https://twitter.com" img={twitter} />
               <MenuButton link="/feed" img={rss} /> */}
             </div>
             <div className="helper">
               <Link href="/donate">
-                <a>Помоги сайту</a>
+                <a>{lang === "ENG" ? "Help or Site" : "Помоги сайту"}</a>
               </Link>
               <Image src={helper} alt="" />
             </div>
