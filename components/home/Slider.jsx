@@ -156,7 +156,6 @@ const Slider = () => {
                   <div className="mainSlideShader">
                     <div className="text">
                       <p className="title">{mainSlideData.title}</p>
-                      <p className="description">{mainSlideData.description}</p>
                     </div>
                   </div>
                 </a>

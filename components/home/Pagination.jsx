@@ -5,7 +5,7 @@ import paginationArray from "../../lib/paginationArray";
 import BlogService from "../../lib/services/BlogService";
 
 const Pagination = ({ moveToPage }) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [pageArray, setPageArray] = useState([]);
   const [countPgae, setCountPage] = useState(0);
 
@@ -13,7 +13,7 @@ const Pagination = ({ moveToPage }) => {
     const blogCheckResponse = async () => {
       const pageArr = [];
       const getBlogRowsCount = await BlogService.getBlogRowsCount();
-      for (let i = 1; i <= getBlogRowsCount; i++) {
+      for (let i = 0; i <= getBlogRowsCount; i++) {
         pageArr.push(i);
       }
       setPageArray(pageArr);
@@ -41,10 +41,10 @@ const Pagination = ({ moveToPage }) => {
         ) : (
           <div className="unclickable back">Назад</div>
         )}
-        {pageArray.slice(page - 1, page + 5).map((i, index) =>
+        {pageArray.map((i, index) =>
           i == page ? (
             <div className="unclickable square" key={index}>
-              {i}
+              {i + 1}
             </div>
           ) : (
             <div
@@ -55,10 +55,28 @@ const Pagination = ({ moveToPage }) => {
               }}
               key={index}
             >
-              {i}
+              {i + 1}
             </div>
           )
         )}
+        {/* {pageArray.slice(page, page + 3).map((i, index) =>
+          i == page ? (
+            <div className="unclickable square" key={index}>
+              {i + 1}
+            </div>
+          ) : (
+            <div
+              className="clickable square"
+              onClick={() => {
+                moveToPage(i);
+                setPage(i);
+              }}
+              key={index}
+            >
+              {i + 1}
+            </div>
+          )
+        )} */}
         {page == countPgae ? (
           <div className="unclickable forward">Вперёд</div>
         ) : (

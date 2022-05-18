@@ -137,13 +137,17 @@ const TopMenu = () => {
             </div>
             <div className="helper">
               <Link href="/donate">
-                <a>{lang === "ENG" ? "Help or Site" : "Помоги сайту"}</a>
+                <a>{lang === "En" ? "Help or Site" : "Помоги сайту"}</a>
               </Link>
               <Image src={helper} alt="" />
             </div>
             <div className="searchBox">
               <div className="search">
-                <Image src={search} alt="" />
+                <Link href="/search">
+                  <a>
+                    <Image src={search} alt="" />
+                  </a>
+                </Link>
               </div>
             </div>
           </span>
