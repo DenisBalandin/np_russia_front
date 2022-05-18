@@ -5,7 +5,7 @@ import MostRead from "./MostRead";
 import Post from "./Post";
 import BlogService from "../../lib/services/BlogService";
 import Pagination from "./Pagination";
-const Blog = ({ startingPage = 1 }) => {
+const Blog = ({ startingPage = 0 }) => {
   const [blogData, setBlogData] = useState([]);
 
   useEffect(() => {

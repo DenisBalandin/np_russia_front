@@ -62,8 +62,7 @@ const Share = () => {
         }
         .share-background {
           display: flex;
-          width: 100%;
-          position: relative;
+          width: 70%;
           flex-direction: column;
           text-transform: uppercase;
           letter-spacing: 1px;
@@ -71,6 +70,8 @@ const Share = () => {
           font-size: 0.6rem;
           justify-content: center;
           margin: 1rem 0;
+          position: absolute; /* добавили */
+          bottom: 0; /* добавили */
         }
         .share-text {
           margin-bottom: 1rem;

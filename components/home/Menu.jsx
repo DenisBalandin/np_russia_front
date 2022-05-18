@@ -36,16 +36,79 @@ const Menu = (langToggle, query) => {
                 </Link>
               </div>
             </li>
-            <li>Кино</li>
-            <li>Искусство</li>
-            <li>Современная музыка</li>
-            <li>Академическая музыка</li>
-            <li>ЛитератураТеатр</li>
-            <li>Медиа</li>
-            <li>Общество</li>
-            <li>Наука</li>
-            <li>Colta Specials</li>
-            {query.l === "en" ? (
+            <li>
+              {" "}
+              <Link href={`/category/война`}>
+                <a>
+                  <div className="viewsTitle">Война</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Протесты`}>
+                <a>
+                  <div className="viewsTitle">Протесты</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Расследования`}>
+                <a>
+                  <div className="viewsTitle">Расследования</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Митинги`}>
+                <a>
+                  <div className="viewsTitle">Митинги</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Политика`}>
+                <a>
+                  <div className="viewsTitle">Политика</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Мысли`}>
+                <a>
+                  <div className="viewsTitle">Мысли</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Общество`}>
+                <a>
+                  <div className="viewsTitle">Общество</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Репрессии`}>
+                <a>
+                  <div className="viewsTitle">Репрессии</div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link href={`/category/Санкции`}>
+                <a>
+                  <div className="viewsTitle">Санкции</div>
+                </a>
+              </Link>
+            </li>
+            {/* {query.l === "en" ? (
               <li className="lang">
                 <Link href={{ query: query }} onClick={() => langToggle()}>
                   <a>Русский</a>
@@ -57,7 +120,7 @@ const Menu = (langToggle, query) => {
                   <a>English</a>
                 </Link>
               </li>
-            )}
+            )} */}
           </ul>
         </div>
       </div>

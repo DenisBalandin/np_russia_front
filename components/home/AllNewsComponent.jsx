@@ -7,7 +7,7 @@ import AllNewsPreview from "./AllNewsPreview";
 import NewsService from "../../lib/services/NewsService";
 import Pagination from "./Pagination";
 
-const AllNewsComponent = ({ startingPage = 1 }) => {
+const AllNewsComponent = ({ startingPage = 0 }) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
