@@ -12,10 +12,9 @@ import MostRead from "../../components/home/MostRead";
 const Post = () => {
   const [postData, setPostData] = useState([]);
   const router = useRouter();
-
+  const { link } = router.query;
   useEffect(() => {
     const blogCheckResponse = async () => {
-      const { link } = router.query;
       const blogResponse = await BlogService.getOneByLink(link);
       setPostData(blogResponse);
     };
@@ -34,7 +33,7 @@ const Post = () => {
         date={postData?.date}
       />
       <MainImage post={postData} />
-      <Content article={postData?.text} />
+      <Content article={postData?.text} link={link} />
       <div className="newest">
         <MostRead newest />
       </div>
