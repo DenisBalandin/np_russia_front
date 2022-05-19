@@ -40,7 +40,7 @@ const Share = ({ link, title }) => {
         <div className="share-tg">
           <div className="tg">
             <TelegramShareButton
-              url={"https://github.com/next-share"}
+              url={`https://www.nprussia.net/post/${link}`}
               title={title}
             >
               <TelegramIcon size={32} round />
