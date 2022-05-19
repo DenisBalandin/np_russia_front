@@ -1,7 +1,18 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  RedditShareButton,
+  RedditIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "next-share";
 const Share = () => {
   return (
     <div className="share-background">
@@ -10,14 +21,9 @@ const Share = () => {
         <Link href="fb.com/">
           <a>
             <div className="share-fb">
-              <div className="share-img">
-                <Image
-                  src="/images/icons/s_fb.png"
-                  height="60%"
-                  width="30%"
-                  alt=""
-                />
-              </div>
+              <FacebookShareButton url={"https://nprussia.net/"}>
+                <FacebookIcon size={32} round />
+              </FacebookShareButton>
               <p>Facebook</p>
             </div>
           </a>
