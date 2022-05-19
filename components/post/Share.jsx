@@ -13,13 +13,13 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "next-share";
-const Share = () => {
+const Share = ({ link }) => {
   return (
     <div className="share-background">
       <p className="share-text">Поделиться ссылкой / Share</p>
       <div className="share-soc">
         <div className="share-fb">
-          <FacebookShareButton url={"https://nprussia.net/"}>
+          <FacebookShareButton url={`https://www.nprussia.net/post/${link}`}>
             <FacebookIcon size={32} round />
             <p>Facebook</p>
           </FacebookShareButton>
