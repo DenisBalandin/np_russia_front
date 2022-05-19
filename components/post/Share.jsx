@@ -18,16 +18,12 @@ const Share = () => {
     <div className="share-background">
       <p className="share-text">Поделиться ссылкой / Share</p>
       <div className="share-soc">
-        <Link href="fb.com/">
-          <a>
-            <div className="share-fb">
-              <FacebookShareButton url={"https://nprussia.net/"}>
-                <FacebookIcon size={32} round />
-              </FacebookShareButton>
-              <p>Facebook</p>
-            </div>
-          </a>
-        </Link>
+        <div className="share-fb">
+          <FacebookShareButton url={"https://nprussia.net/"}>
+            <FacebookIcon size={32} round />
+            <p>Facebook</p>
+          </FacebookShareButton>
+        </div>
         <Link href="twitter.com/">
           <a>
             <div className="share-tw">
