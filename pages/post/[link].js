@@ -22,6 +22,14 @@ const Post = () => {
   });
   return (
     <div>
+      <meta
+        property="og:image"
+        content="https://nprussia.org/admin/public/images/blog/69733e8f7215af5fabb76.jpg"
+      />
+
+      <meta property="og:image:width" content="1200" />
+
+      <meta property="og:image:height" content="630" />
       <TopMenu />
       <div className="Menu">
         <Menu />

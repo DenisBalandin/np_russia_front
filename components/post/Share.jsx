@@ -4,14 +4,10 @@ import Image from "next/image";
 import {
   FacebookShareButton,
   FacebookIcon,
-  PinterestShareButton,
-  PinterestIcon,
-  RedditShareButton,
-  RedditIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  TwitterShareButton,
+  TwitterIcon,
 } from "next-share";
 const Share = ({ link, title }) => {
   return (
@@ -28,38 +24,30 @@ const Share = ({ link, title }) => {
             <p>Facebook</p>
           </FacebookShareButton>
         </div>
-        <Link href="twitter.com/">
-          <a>
-            <div className="share-tw">
-              <div className="share-img">
-                <Image
-                  src="/images/icons/s_tw.png"
-                  height="60%"
-                  width="30%"
-                  alt=""
-                />
-              </div>
+
+        <div className="share-tw">
+          <div className="tg">
+            <TwitterShareButton
+              url={`https://www.nprussia.net/post/${link}`}
+              title={title}
+            >
+              <TwitterIcon size={32} round />
               <p>Twitter</p>
-            </div>
-          </a>
-        </Link>
-        <Link href="tg.me/">
-          <a>
-            <div className="share-tg">
-              <div className="tg">
-                <span className="tg-inner">
-                  <Image
-                    src="/images/icons/tg.png"
-                    height="17%"
-                    width="17%"
-                    alt=""
-                  />
-                </span>
-              </div>
+            </TwitterShareButton>
+          </div>
+        </div>
+
+        <div className="share-tg">
+          <div className="tg">
+            <TelegramShareButton
+              url={"https://github.com/next-share"}
+              title={title}
+            >
+              <TelegramIcon size={32} round />
               <p>Telegram</p>
-            </div>
-          </a>
-        </Link>
+            </TelegramShareButton>
+          </div>
+        </div>
       </div>
       <style jsx>{`
         a {
@@ -68,15 +56,14 @@ const Share = ({ link, title }) => {
         }
         .share-background {
           display: flex;
-          width: 70%;
+          width: 100%;
           flex-direction: column;
           text-transform: uppercase;
           letter-spacing: 1px;
           text-align: center;
           font-size: 0.6rem;
           justify-content: center;
-          margin: 1rem 0;
-          position: absolute; /* добавили */
+          margin: 0.5rem 0;
           bottom: 0; /* добавили */
         }
         .share-text {
