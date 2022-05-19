@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NewsStrip from "./NewsStrip";
 import Share from "./Share";
 
-const Content = ({ article, link }) => {
+const Content = ({ article, link, title }) => {
   let content = article;
   const [contentWidth, setContentWidth] = useState(0);
   useEffect(() => {
@@ -18,7 +18,7 @@ const Content = ({ article, link }) => {
             className="content-inner"
             dangerouslySetInnerHTML={{ __html: content }}
           />
-          <Share link={link} />
+          <Share link={link} title={title} />
         </section>
         <section className="sidebar">
           <NewsStrip />

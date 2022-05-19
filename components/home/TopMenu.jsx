@@ -53,9 +53,7 @@ const TopMenu = () => {
         <div className="mobileTopbar">
           <div className="navIcon">
             <Image
-              src={
-                "https://nprussia.org/admin/public/images/blog/69733e8f7215af5fabb76.jpg"
-              }
+              src={nav}
               height="35px"
               width="36px"
               onClick={() => menuToggle()}
@@ -75,9 +73,7 @@ const TopMenu = () => {
         <div className="mobileTopbar black">
           <div className="navIcon">
             <Image
-              src={
-                "https://nprussia.org/admin/public/images/blog/69733e8f7215af5fabb76.jpg"
-              }
+              src={nav}
               height="35px"
               width="36px"
               onClick={() => menuToggle()}

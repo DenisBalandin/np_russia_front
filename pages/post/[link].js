@@ -33,7 +33,7 @@ const Post = () => {
         date={postData?.date}
       />
       <MainImage post={postData} />
-      <Content article={postData?.text} link={link} />
+      <Content article={postData?.text} link={link} title={postData?.title} />
       <div className="newest">
         <MostRead newest />
       </div>
