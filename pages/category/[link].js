@@ -19,12 +19,21 @@ const Category = () => {
   const router = useRouter();
   const { link } = router?.query;
   useEffect(() => {
+    console.log(router);
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.getBlogByCategory(link);
       setPostData(blogResponse);
     };
     if (postData?.length <= 0) blogCheckResponse();
   });
+
+  useEffect(() => {
+    const blogCheckResponse = async () => {
+      const blogResponse = await BlogService.getBlogByCategory(link);
+      setPostData(blogResponse);
+    };
+    blogCheckResponse();
+  }, [link]);
 
   // useEffect(() => {
   //   const blogCheckResponse = async () => {
@@ -55,6 +64,7 @@ const Category = () => {
   // useEffect(() => {
   //   sessionStorage.setItem("state", lang);
   // }, [lang]);
+
   const changePage = (i) => {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.get(i);

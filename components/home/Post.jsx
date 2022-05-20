@@ -27,11 +27,13 @@ const Post = ({ data }) => {
         </a>
       </Link>
       <div className="category">
-        <Link href={categoryLink}>
-          <a>
-            <p>{data.category}</p>
-          </a>
-        </Link>
+        {data?.category.split("; ").map((item) => (
+          <Link classname="categoryItem" href={`/category/${item}`} key={item}>
+            <a>
+              <p>{item}&nbsp; </p>
+            </a>
+          </Link>
+        ))}
       </div>
       <Link href={pageSrc}>
         <a>
