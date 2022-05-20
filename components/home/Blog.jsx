@@ -11,7 +11,6 @@ const Blog = ({ startingPage = 0 }) => {
   useEffect(() => {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.get(0);
-      console.log("blogResponse", blogResponse);
       setBlogData(blogResponse);
     };
     blogCheckResponse();
@@ -46,7 +45,7 @@ const Blog = ({ startingPage = 0 }) => {
           </div>
         )}
         <div className="pagination">
-          <Pagination moveToPage={changePage} />
+          <Pagination moveToPage={changePage} category="blog" />
         </div>
       </div>
       <style jsx>{`

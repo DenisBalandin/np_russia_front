@@ -25,7 +25,6 @@ const AllNewsComponent = ({ startingPage = 0 }) => {
     };
     newsCheckResponse();
   };
-  console.log(newsData);
   return (
     <div className="blog-background">
       <div className="list">
@@ -49,7 +48,7 @@ const AllNewsComponent = ({ startingPage = 0 }) => {
           </div>
         )}
         <div className="pagination">
-          <Pagination moveToPage={changePage} />
+          <Pagination moveToPage={changePage} category="news" />
         </div>
       </div>
       <style jsx>{`

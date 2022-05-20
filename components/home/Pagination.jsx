@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import paginationArray from "../../lib/paginationArray";
 import BlogService from "../../lib/services/BlogService";
+import NewsService from "../../lib/services/NewsService";
 
-const Pagination = ({ moveToPage }) => {
+const Pagination = ({ moveToPage, category }) => {
   const [page, setPage] = useState(0);
   const [pageArray, setPageArray] = useState([]);
   const [countPgae, setCountPage] = useState(0);
@@ -12,12 +13,18 @@ const Pagination = ({ moveToPage }) => {
   useEffect(() => {
     const blogCheckResponse = async () => {
       const pageArr = [];
-      const getBlogRowsCount = await BlogService.getBlogRowsCount();
-      for (let i = 0; i <= getBlogRowsCount; i++) {
+      let getRowsCount = "";
+      if (category === "blog") {
+        getRowsCount = await BlogService.getBlogRowsCount();
+      }
+      if (category === "news") {
+        getRowsCount = await NewsService.getNewsRowsCount();
+      }
+      for (let i = 0; i <= getRowsCount; i++) {
         pageArr.push(i);
       }
       setPageArray(pageArr);
-      setCountPage(getBlogRowsCount);
+      setCountPage(getRowsCount);
     };
     blogCheckResponse();
   }, []);

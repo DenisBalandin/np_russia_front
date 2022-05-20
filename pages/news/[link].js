@@ -28,11 +28,6 @@ const News = () => {
         <Menu />
       </div>
       <hr />
-      <TopCategory
-        category={newsData?.category}
-        viewCount={newsData?.views}
-        date={newsData?.date}
-      />
       <MainImage post={newsData} />
       <Content article={newsData?.text} />
       <div className="newest">

@@ -8,25 +8,19 @@ import views from "/public/images/views.png";
 
 // import imgSrc from '/data/files/images/blog/detailed_picture (19).jpg'
 const AllNewsPreview = ({ item }) => {
-  const pageSrc = `/post/${item?.link}`; /* to be changed */
+  const pageSrc = `/news/${item?.link}`; /* to be changed */
   const categoryLink = item?.category; /* to be changed */
   const imgSrc = item?.image;
   return (
     <div className="post-background">
-      {/* <Link href={pageSrc}>
+      <Link href={pageSrc}>
         <a>
           <div className="pic">
             <Image priority src={imgSrc} layout="fill" objectFit="cover" />
           </div>
         </a>
-      </Link> */}
-      <div className="category">
-        {/* <Link href={categoryLink}>
-          <a>
-            <p>{data.category}</p>
-          </a>
-        </Link> */}
-      </div>
+      </Link>
+
       <Link href={pageSrc}>
         <a>
           <div className="title" title={item?.title}>
@@ -37,19 +31,7 @@ const AllNewsPreview = ({ item }) => {
           </div>
         </a>
       </Link>
-      <div className="date">
-        {dateProcessor(item?.date)}
-        <Link href={pageSrc}>
-          <a>
-            <div className="views">
-              <div className="image">
-                <Image src={views} alt="views" />
-              </div>
-              <div className="views-count">{item?.views}</div>
-            </div>
-          </a>
-        </Link>
-      </div>
+      <div className="date">{dateProcessor(item?.date)}</div>
       <style jsx>{`
         @media (min-width: 0px) {
           .post-background {
