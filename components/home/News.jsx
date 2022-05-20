@@ -1,18 +1,27 @@
 "use strict";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import NewsPreview from "./NewsPreview";
 import NewsService from "../../lib/services/NewsService";
 const News = () => {
   const [sliderCount, setSliderCount] = useState(0);
   const [newsData, setNewsData] = useState([]);
+  const [lang, setLang] = useState("En");
+
   useEffect(() => {
     const newsCheckResponse = async () => {
       const newsResponse = await NewsService.get();
       setNewsData(newsResponse);
     };
     newsCheckResponse();
+  }, []);
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("state")) {
+      setLang(sessionStorage.getItem("state"));
+    } else {
+      sessionStorage.setItem("state", lang);
+    }
   }, []);
 
   useEffect(() => {
@@ -22,19 +31,22 @@ const News = () => {
     };
     newsCheckResponse();
   }, [sliderCount]);
+  useEffect(() => {
+    sessionStorage.setItem("state", lang);
+  }, [lang]);
   return (
     <div className="news-background">
       <div className="container">
         <div className="heading">
           <Link href="/news">
             <a>
-              <div className="title">Новости</div>
+              <div className="title">{lang === "En" ? "News" : "Новости"}</div>
             </a>
           </Link>
           <div className="rightSide">
             <div className="allNews">
               <Link href="/news">
-                <a>все новости</a>
+                <a>{lang === "En" ? "All News" : "Все Новости"}</a>
               </Link>
             </div>
             <div className="arrows">

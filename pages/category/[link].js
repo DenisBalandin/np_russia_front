@@ -17,17 +17,15 @@ const Category = () => {
   const [lang, setLang] = useState("En");
 
   const router = useRouter();
-
+  const { link } = router?.query;
   useEffect(() => {
     const blogCheckResponse = async () => {
-      const { link } = router.query;
       const blogResponse = await BlogService.getBlogByCategory(link);
       setPostData(blogResponse);
     };
     if (postData?.length <= 0) blogCheckResponse();
   });
 
-  console.log(postData);
   // useEffect(() => {
   //   const blogCheckResponse = async () => {
   //     const blogResponse = await BlogService.getBlogBySearch(state?.title);
@@ -76,9 +74,9 @@ const Category = () => {
             {postData &&
               postData.map((item) => <Post key={item.id} data={item} />)}
           </div>
-          <div className="pagination">
-            <Pagination moveToPage={changePage} />
-          </div>
+          {/* <div className="pagination">
+            <Pagination moveToPage={changePage} category="cat" catlink={link} />
+          </div> */}
         </div>
         <style jsx>{`
           @media (min-width: 600px) {

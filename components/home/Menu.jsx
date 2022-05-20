@@ -1,11 +1,25 @@
 "use strict";
 
-import React, { useEffect, useState } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 
 const Menu = (langToggle, query) => {
   const [visibility, setVisibility] = useState("hidden");
   const [position, setPosition] = useState("absolute");
+  const [lang, setLang] = useState("En");
+
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("state")) {
+      setLang(sessionStorage.getItem("state"));
+    } else {
+      sessionStorage.setItem("state", lang);
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("state", lang);
+  }, [lang]);
+
   useEffect(() => {
     setInterval(() => {
       if (typeof window !== "undefined") {
@@ -22,89 +36,108 @@ const Menu = (langToggle, query) => {
       }
     }, 100);
   }, []);
+
   return (
     <>
       <div className="menu-background">
         <div className="menu">
           <ul>
-            <li className="logo-box">
+            {/* <li className="logo-box">
               <div>
                 <Link href="/">
                   <a>
-                    <span className="logo">NP Russia</span>
+                    <span>NP Russia</span>
                   </a>
                 </Link>
               </div>
-            </li>
+            </li> */}
             <li>
-              {" "}
               <Link href={`/category/война`}>
                 <a>
-                  <div className="viewsTitle">Война</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "War" : "Война"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Протесты`}>
                 <a>
-                  <div className="viewsTitle">Протесты</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Protests" : "Протесты"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Расследования`}>
                 <a>
-                  <div className="viewsTitle">Расследования</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Investigations" : "Расследования"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Митинги`}>
                 <a>
-                  <div className="viewsTitle">Митинги</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Rallies" : "Митинги"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Политика`}>
                 <a>
-                  <div className="viewsTitle">Политика</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Politics" : "Политика"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Мысли`}>
                 <a>
-                  <div className="viewsTitle">Мысли</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Thoughts" : "Мысли"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Общество`}>
                 <a>
-                  <div className="viewsTitle">Общество</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Society" : "Общество"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Репрессии`}>
                 <a>
-                  <div className="viewsTitle">Репрессии</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Repression" : "Репрессии"}
+                  </div>
                 </a>
               </Link>
             </li>
             <li>
-              {" "}
               <Link href={`/category/Санкции`}>
                 <a>
-                  <div className="viewsTitle">Санкции</div>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Sanctions" : "Санкции"}
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/news`}>
+                <a>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "News" : "Новости"}
+                  </div>
                 </a>
               </Link>
             </li>

@@ -5,11 +5,10 @@ import paginationArray from "../../lib/paginationArray";
 import BlogService from "../../lib/services/BlogService";
 import NewsService from "../../lib/services/NewsService";
 
-const Pagination = ({ moveToPage, category }) => {
+const Pagination = ({ moveToPage, category, catlink }) => {
   const [page, setPage] = useState(0);
   const [pageArray, setPageArray] = useState([]);
   const [countPgae, setCountPage] = useState(0);
-
   useEffect(() => {
     const blogCheckResponse = async () => {
       const pageArr = [];
@@ -20,7 +19,10 @@ const Pagination = ({ moveToPage, category }) => {
       if (category === "news") {
         getRowsCount = await NewsService.getNewsRowsCount();
       }
-      for (let i = 0; i <= getRowsCount; i++) {
+      // if (category === "cat") {
+      //   getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
+      // }
+      for (let i = 0; i <= getRowsCount && getRowsCount; i++) {
         pageArr.push(i);
       }
       setPageArray(pageArr);
@@ -28,7 +30,6 @@ const Pagination = ({ moveToPage, category }) => {
     };
     blogCheckResponse();
   }, []);
-
   return (
     <div className="pag-background">
       <div className="pag-box mob" onClick={() => addPosts()}>
