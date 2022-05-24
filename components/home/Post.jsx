@@ -28,9 +28,9 @@ const Post = ({ data }) => {
       </Link>
       <div className="category">
         {data?.category.split("; ").map((item) => (
-          <Link classname="categoryItem" href={`/category/${item}`} key={item}>
-            <a>
-              <p>{item}&nbsp; </p>
+          <Link href={`/category/${item}`} key={item}>
+            <a className="categoryItem">
+              <span>{item}&nbsp; </span>
             </a>
           </Link>
         ))}
@@ -47,16 +47,12 @@ const Post = ({ data }) => {
       </Link>
       <div className="date">
         {dateProcessor(data.date)}
-        <Link href={pageSrc}>
-          <a>
-            <div className="views">
-              <div className="image">
-                <Image src={views} alt="" />
-              </div>
-              <div className="views-count">{data.views}</div>
-            </div>
-          </a>
-        </Link>
+        <div className="views">
+          <div className="image">
+            <Image src={views} alt="" />
+          </div>
+          <div className="views-count">{data.views}</div>
+        </div>
       </div>
       <style jsx>{`
         @media (min-width: 0px) {
@@ -79,7 +75,7 @@ const Post = ({ data }) => {
             color: #d92121;
             font-weight: bold;
             font-size: 1rem;
-            padding-left: 0.5rem;
+            padding: 0.5rem;
           }
           .title {
             font-size: 2rem;
@@ -140,13 +136,15 @@ const Post = ({ data }) => {
             max-width: 25rem;
           }
           .category {
-            color: #d92121;
             font-weight: bold;
             cursor: pointer;
             font-size: 0.75rem;
-            padding: 0;
+            padding: 0.5rem 0.5rem 0.5rem 0;
           }
-          .category:hover {
+          categoryItem {
+            color: #d92121;
+          }
+          .categoryItem:hover {
             color: #999999;
           }
           .title {
@@ -174,9 +172,6 @@ const Post = ({ data }) => {
           }
           .views-count {
             margin-top: 0.1rem;
-          }
-          .views-count:hover {
-            color: #d92121;
           }
         }
       `}</style>

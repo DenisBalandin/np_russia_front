@@ -1,6 +1,6 @@
 "use strict";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import paginationArray from "../../lib/paginationArray";
 import BlogService from "../../lib/services/BlogService";
 import NewsService from "../../lib/services/NewsService";
@@ -9,6 +9,8 @@ const Pagination = ({ moveToPage, category, catlink }) => {
   const [page, setPage] = useState(0);
   const [pageArray, setPageArray] = useState([]);
   const [countPgae, setCountPage] = useState(0);
+  const [lang, setLang] = useState("En");
+
   useEffect(() => {
     const blogCheckResponse = async () => {
       const pageArr = [];
@@ -30,10 +32,20 @@ const Pagination = ({ moveToPage, category, catlink }) => {
     };
     blogCheckResponse();
   }, []);
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("state")) {
+      setLang(sessionStorage.getItem("state"));
+    } else {
+      sessionStorage.setItem("state", lang);
+    }
+  }, []);
+  useEffect(() => {
+    sessionStorage.setItem("state", lang);
+  }, [lang]);
   return (
     <div className="pag-background">
       <div className="pag-box mob" onClick={() => addPosts()}>
-        Показать ещё
+        {lang === "En" ? "Show more" : "Показать ещё"}
       </div>
       <div className="pag-box wide-screen">
         {page > 1 ? (
@@ -44,10 +56,13 @@ const Pagination = ({ moveToPage, category, catlink }) => {
               setPage(page - 1);
             }}
           >
-            Назад
+            {lang === "En" ? "Back" : "Назад"}
           </div>
         ) : (
-          <div className="unclickable back">Назад</div>
+          <div className="unclickable back">
+            {" "}
+            {lang === "En" ? "Back" : "Назад"}
+          </div>
         )}
         {pageArray.map((i, index) =>
           i == page ? (
@@ -86,7 +101,9 @@ const Pagination = ({ moveToPage, category, catlink }) => {
           )
         )} */}
         {page == countPgae ? (
-          <div className="unclickable forward">Вперёд</div>
+          <div className="unclickable forward">
+            {lang === "En" ? "Forward" : "Вперёд"}
+          </div>
         ) : (
           <div
             className="clickable forward"
@@ -95,7 +112,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
               setPage(page + 1);
             }}
           >
-            Вперёд
+            {lang === "En" ? "Forward" : "Вперёд"}
           </div>
         )}
       </div>

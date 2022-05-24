@@ -141,7 +141,7 @@ const TopMenu = () => {
             </div>
             <div className="helper">
               <Link href="/donate">
-                <a>{lang === "En" ? "Help or Site" : "Помоги сайту"}</a>
+                <a>{lang === "En" ? "Help the site" : "Помоги сайту"}</a>
               </Link>
               <Image src={helper} alt="" />
             </div>

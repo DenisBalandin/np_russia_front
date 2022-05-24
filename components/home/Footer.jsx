@@ -1,29 +1,45 @@
 "use strict";
 
-import React from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
+  const [lang, setLang] = useState("En");
+
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("state")) {
+      setLang(sessionStorage.getItem("state"));
+    } else {
+      sessionStorage.setItem("state", lang);
+    }
+  }, []);
+  useEffect(() => {
+    sessionStorage.setItem("state", lang);
+  }, [lang]);
+
   const firstColumn = [
-    { link: "/news", text: "Новости" },
-    { link: "/photo", text: "Фотопроекты" },
-    { link: "archives.nprussia.org", text: "Архив NPRussia.org" },
+    {
+      link: "/news",
+      text: lang === "En" ? "News" : "Новости",
+    },
+    { link: "/about", text: lang === "En" ? "About the project" : "О проекте" },
+    // { link: "/authors", text: "Авторы" },
+    // { link: "/sponsors", text: "Попечители" },
+    {
+      link: "/donate",
+      text: lang === "En" ? "Help the site " : "Помоги сайту",
+    },
   ];
   const secondColumn = [
-    { link: "/about", text: "О проекте" },
-    { link: "/authors", text: "Авторы" },
-    { link: "/sponsors", text: "Попечители" },
-    { link: "/help", text: "Помоги сайту" },
-    { link: "/thanks", text: "Нам помогают" },
-    { link: "/partnership", text: "Партнёрство" },
-    { link: "/mailing", text: "Рассылка" },
+    // { link: "/partnership", text: "Партнёрство" },
+    // { link: "/mailing", text: "Рассылка" },
   ];
-  const specialProjects = [
-    { link: "/young_russia", text: "Молодая Россия" },
-    { link: "/bridges", text: "Мосты" },
-    { link: "/portraits", text: "Онлайн-портреты современных немецких" },
-  ];
+  // const specialProjects = [
+  //   { link: "/young_russia", text: "Молодая Россия" },
+  //   { link: "/bridges", text: "Мосты" },
+  //   { link: "/portraits", text: "Онлайн-портреты современных немецких" },
+  // ];
   return (
     <footer>
       <div className="double-box">
@@ -38,7 +54,7 @@ const Footer = () => {
             </div>
             <div className="about">
               <Link href="/about">
-                <a>О проекте</a>
+                <a> {lang === "En" ? "About the site " : "О проекте"}</a>
               </Link>
             </div>
           </div>
@@ -59,7 +75,7 @@ const Footer = () => {
               )
             )}
           </div>
-          <div className="social flex-item wide">
+          {/* <div className="social flex-item wide">
             {secondColumn.map((item, index) =>
               index == secondColumn.length - 1 ? (
                 <Link href={item.link} key={index}>
@@ -75,8 +91,8 @@ const Footer = () => {
                 </Link>
               )
             )}
-          </div>
-          <div className="social flex-item">
+          </div> */}
+          {/* <div className="social flex-item">
             <Link href="fb.com/">
               <a>
                 <Image
@@ -137,8 +153,8 @@ const Footer = () => {
                 <p className="soc-text soc">RSS</p>
               </a>
             </Link>
-          </div>
-          <div className="social flex-item wide">
+          </div> */}
+          {/* <div className="social flex-item wide">
             <a className="special">
               <p className="soc-text">Спецпроекты NPRussia.org</p>
             </a>
@@ -157,13 +173,14 @@ const Footer = () => {
                 </Link>
               )
             )}
-          </div>
+          </div> */}
           <div className="additional-mob flex-item">
             <p className="add-text rights">
-              © 2022 NPRussia.org. Все права защищены.
+              © 2017 NPRussia{" "}
+              {lang === "En" ? "All rights reserved" : "Все права защищены"}.
             </p>
             <p className="add-text">
-              Сделано при помощи{" "}
+              {lang === "En" ? "Made with" : "Сделано при помощи"}.
               <Link href="nextjs.com/">
                 <a className="white">Next.js</a>
               </Link>
@@ -172,30 +189,27 @@ const Footer = () => {
         </div>
         <div className="additional-info">
           <p className="add-text rights">
-            © 2022 NPRussia.org. Все права защищены.
+            © 2017 NPRussia{" "}
+            {lang === "En" ? "All rights reserved" : "Все права защищены"}.
           </p>
-          <p className="add-text white link">
+          {/* <p className="add-text white link">
             <Link href="/legal">
               <a>Правовая информация</a>
             </Link>
-          </p>
+          </p> */}
           <p className="add-text">
-            Сделано при помощи{" "}
+            {lang === "En" ? "Made with" : "Сделано при помощи"}
             <Link href="nextjs.com/">
-              <a className="white">Next.js</a>
+              <a className="white"> Next.js</a>
             </Link>
           </p>
           <div className="right">
-            <Link href="www.liveinternet.ru/click">
-              <a>
-                <Image
-                  src="/images/icons/hit.gif"
-                  width="35%"
-                  height="35%"
-                  alt="views"
-                />
-              </a>
-            </Link>
+            <Image
+              src="/images/icons/hit.gif"
+              width="35%"
+              height="35%"
+              alt="views"
+            />
           </div>
         </div>
       </div>

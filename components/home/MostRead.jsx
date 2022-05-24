@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import MostReadPost from "./MostReadPost";
 import BlogService from "../../lib/services/BlogService";
 const MostRead = ({ newest }) => {
   const [mrData, setMrData] = useState([]);
+  const [lang, setLang] = useState("En");
+
   useEffect(() => {
     const mrCheckResponse = async () => {
       const mrResponse = await BlogService.get();
@@ -11,6 +13,16 @@ const MostRead = ({ newest }) => {
     mrCheckResponse();
   }, []);
   const [count, setCount] = useState(0);
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("state")) {
+      setLang(sessionStorage.getItem("state"));
+    } else {
+      sessionStorage.setItem("state", lang);
+    }
+  }, []);
+  useEffect(() => {
+    sessionStorage.setItem("state", lang);
+  }, [lang]);
   const arr = newest
     ? mrData
         ?.slice()
@@ -26,7 +38,9 @@ const MostRead = ({ newest }) => {
     <div className="mr-background">
       <div className="mr-carousel">
         <div className="mr-top">
-          <div className="title">Самое {newest ? "новое" : "читаемое"}</div>
+          <div className="title">
+            {lang === "En" ? "The most readable" : "Самое читаемое"}
+          </div>
           <div className="arrows">
             <div className="arrow" onClick={() => setCount(count - 1)}>
               ←
