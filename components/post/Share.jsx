@@ -14,11 +14,12 @@ const Share = ({ link, title }) => {
     <div className="share-background">
       <p className="share-text">Поделиться ссылкой / Share</p>
       <div className="share-soc">
-        <div className="share-fb">
+        <div>
           <FacebookShareButton
             url={`https://www.nprussia.net/post/${link}`}
             quote={title}
             hashtag={"#RussianWarCrimes"}
+            className="share-fb"
           >
             <FacebookIcon size={32} round />
             <p>Facebook</p>
@@ -63,7 +64,7 @@ const Share = ({ link, title }) => {
           text-align: center;
           font-size: 0.6rem;
           justify-content: center;
-          margin: 0.5rem 0;
+          margin: 3.5rem 0;
           bottom: 0; /* добавили */
         }
         .share-text {
@@ -71,29 +72,20 @@ const Share = ({ link, title }) => {
         }
         .share-fb {
           color: #3b5998;
+          padding: 1rem;
         }
-        .share-fb:hover {
-          background: #3b5998;
-          color: white;
-        }
+
         .share-tw {
           color: #00acee;
         }
-        .share-tw:hover {
-          background: #00acee;
-          color: white;
-        }
+
         .share-tg {
           color: #28a8e9;
         }
-        .share-tg:hover {
-          background: #28a8e9;
-          color: white;
-        }
+
         .tg {
           position: relative;
           border: 0 !important;
-          border-right: 1px solid #e6e6e6 !important;
           margin: 0 !important;
           margin-bottom: -3px !important;
           background-color: white !important;
@@ -111,11 +103,11 @@ const Share = ({ link, title }) => {
           flex-wrap: wrap;
         }
         .share-soc div {
-          padding: 0.7rem;
+          padding: 1rem;
           display: flex;
           overflow: hidden;
           margin-bottom: 3rem;
-          padding: 0 !important;
+          padding: 0.2rem !important;
           border: 1px solid #e6e6e6;
         }
         .share-soc div p {
@@ -126,7 +118,6 @@ const Share = ({ link, title }) => {
           position: relative;
           margin: -2rem 0 0 0 !important;
           border: 0 !important;
-          border-right: 1px solid #e6e6e6 !important;
         }
       `}</style>
     </div>

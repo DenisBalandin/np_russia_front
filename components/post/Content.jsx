@@ -93,6 +93,7 @@ const Content = ({ article, link, title }) => {
           font-size: min(1.3rem);
           line-height: min(2rem);
           font-weight: 200;
+          overflow: hidden;
         }
       `}</style>
     </div>

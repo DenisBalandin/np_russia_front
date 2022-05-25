@@ -19,7 +19,6 @@ const Category = () => {
   const router = useRouter();
   const { link } = router?.query;
   useEffect(() => {
-    console.log(router);
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.getBlogByCategory(link);
       setPostData(blogResponse);

@@ -9,13 +9,21 @@ const TopCategory = ({ category, viewCount, date }) => {
   return (
     <div className="cat-background">
       <div className="cat-box">
-        <div className="category">
+        {/* <div className="category">
           <Link href={"/" + category}>
-            {/* ^to be changed*/}
             <a>
               <div className="red-area">{category}</div>
             </a>
           </Link>
+        </div> */}
+        <div className="category">
+          {category?.split("; ").map((item) => (
+            <Link href={`/category/${item}`} key={item}>
+              <a>
+                <div className="red-area">{item}</div>
+              </a>
+            </Link>
+          ))}
         </div>
         <div className="date">{date}</div>
         <div className="views">
@@ -43,6 +51,7 @@ const TopCategory = ({ category, viewCount, date }) => {
           padding: 1rem 3rem 1rem 3rem;
           display: flex;
           flex-wrap: wrap;
+          margin: 0 0.2rem;
         }
         .category {
           letter-spacing: 1px;
