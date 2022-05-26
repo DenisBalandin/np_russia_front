@@ -28,11 +28,17 @@ const News = () => {
         <Menu />
       </div>
       <hr />
-      <MainImage post={newsData} />
-      <Content article={newsData?.text} />
-      <div className="newest">
-        <MostRead newest />
-      </div>
+      {newsData && newsData?.length <= 0 ? (
+        <div className="load">Loading</div>
+      ) : (
+        <>
+          <MainImage post={newsData} />
+          <Content article={newsData?.text} />
+          <div className="newest">
+            <MostRead newest />
+          </div>
+        </>
+      )}
       <Footer />
       <style jsx>{`
         @media (min-width: 0px) {

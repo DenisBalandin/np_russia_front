@@ -22,31 +22,39 @@ const Post = () => {
   });
   return (
     <div>
-      <meta
-        property="og:image"
-        content="https://nprussia.org/admin/public/images/blog/69733e8f7215af5fabb76.jpg"
-      />
-
-      <meta property="og:image:width" content="1200" />
-
-      <meta property="og:image:height" content="630" />
       <TopMenu />
       <div className="Menu">
         <Menu />
       </div>
       <hr />
-      <TopCategory
-        category={postData?.category}
-        viewCount={postData?.views}
-        date={postData?.date}
-      />
-      <MainImage post={postData} />
-      <Content article={postData?.text} link={link} title={postData?.title} />
-      <div className="newest">
-        <MostRead newest />
-      </div>
+      {postData && postData?.length <= 0 ? (
+        <div className="load">Loading</div>
+      ) : (
+        <>
+          {" "}
+          <TopCategory
+            category={postData?.category}
+            viewCount={postData?.views}
+            date={postData?.date}
+          />
+          <MainImage post={postData} />
+          <Content
+            article={postData?.text}
+            link={link}
+            title={postData?.title}
+          />
+          <div className="newest">
+            <MostRead newest />
+          </div>
+        </>
+      )}
       <Footer />
       <style jsx>{`
+        .load {
+          width: 2rem;
+          margin: 5rem auto;
+          font-size: 3rem;
+        }
         @media (min-width: 0px) {
           .Menu {
             visibility: hidden;
