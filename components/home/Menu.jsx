@@ -42,7 +42,7 @@ const Menu = (langToggle, query) => {
       <div className="menu-background">
         <div className="menu">
           <ul>
-            {/* <li className="logo-box">
+            <li className="logo-box">
               <div>
                 <Link href="/">
                   <a>
@@ -50,7 +50,7 @@ const Menu = (langToggle, query) => {
                   </a>
                 </Link>
               </div>
-            </li> */}
+            </li>
             <li>
               <Link href={`/category/война`}>
                 <a>
@@ -132,7 +132,7 @@ const Menu = (langToggle, query) => {
                 </a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href={`/news`}>
                 <a>
                   <div className="viewsTitle">
@@ -140,7 +140,7 @@ const Menu = (langToggle, query) => {
                   </div>
                 </a>
               </Link>
-            </li>
+            </li> */}
             {/* {query.l === "en" ? (
               <li className="lang">
                 <Link href={{ query: query }} onClick={() => langToggle()}>

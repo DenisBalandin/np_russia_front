@@ -5,6 +5,7 @@ import Menu from "../components/home/Menu";
 import News from "../components/home/News";
 import Blog from "../components/home/Blog";
 import Footer from "../components/home/Footer";
+
 export default function Home() {
   return (
     <div>
