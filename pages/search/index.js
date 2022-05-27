@@ -6,7 +6,8 @@ import Menu from "../../components/home/Menu";
 import Share from "../../components/post/Share";
 import NewsStrip from "../../components/post/NewsStrip";
 import Link from "next/link";
-
+const TRACKING_ID = "G-C6SVPY21K8"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 const About = () => {
   const [postData, setPostData] = useState([]);
   const [state, setState] = useState({
