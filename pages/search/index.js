@@ -7,7 +7,7 @@ import Share from "../../components/post/Share";
 import NewsStrip from "../../components/post/NewsStrip";
 import Link from "next/link";
 import ReactGA from "react-ga";
-ReactGA.initialize("G-TQQTY9PTFM");
+ReactGA.initialize("229656786");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const About = () => {
