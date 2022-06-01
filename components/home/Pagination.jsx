@@ -48,7 +48,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
         {lang === "En" ? "Show more" : "Показать ещё"}
       </div>
       <div className="pag-box wide-screen">
-        {page > 1 ? (
+        {page >= 1 ? (
           <div
             className="clickable back"
             onClick={() => {
@@ -56,15 +56,15 @@ const Pagination = ({ moveToPage, category, catlink }) => {
               setPage(page - 1);
             }}
           >
-            {lang === "En" ? "Back" : "Назад"}
+            {lang === "En" ? "Forward" : "Вперёд"}
           </div>
         ) : (
           <div className="unclickable back">
             {" "}
-            {lang === "En" ? "Back" : "Назад"}
+            {lang === "En" ? "Forward" : "Вперёд"}
           </div>
         )}
-        {pageArray.map((i, index) =>
+        {/* {pageArray.map((i, index) =>
           i == page ? (
             <div className="unclickable square" key={index}>
               {i + 1}
@@ -81,7 +81,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
               {i + 1}
             </div>
           )
-        )}
+        )} */}
         {/* {pageArray.slice(page, page + 3).map((i, index) =>
           i == page ? (
             <div className="unclickable square" key={index}>
@@ -102,7 +102,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
         )} */}
         {page == countPgae ? (
           <div className="unclickable forward">
-            {lang === "En" ? "Forward" : "Вперёд"}
+            {lang === "En" ? "Back" : "Назад"}
           </div>
         ) : (
           <div
@@ -112,7 +112,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
               setPage(page + 1);
             }}
           >
-            {lang === "En" ? "Forward" : "Вперёд"}
+            {lang === "En" ? "Back" : "Назад"}
           </div>
         )}
       </div>
