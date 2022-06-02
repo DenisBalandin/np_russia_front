@@ -40,9 +40,13 @@ const Post = ({ data }) => {
           <div className="title" title={data.title}>
             {data.title}
           </div>
-          <div className="description" title={data.description}>
+          <div
+            className="description"
+            dangerouslySetInnerHTML={{ __html: data.description }}
+          />
+          {/* <div className="description" title={data.description}>
             {data.description}
-          </div>
+          </div> */}
         </a>
       </Link>
       <div className="date">
