@@ -19,7 +19,11 @@ const MainImage = ({ post }) => {
     <div className="mi-background">
       <div className="mi-box">
         <h1 className="title top-text">{post?.title}</h1>
-        <p className="description top-text">{post?.description}</p>
+        <div
+          className="description top-text"
+          dangerouslySetInnerHTML={{ __html: post?.description }}
+        />
+        {/* <p className="description top-text">{post?.description}</p> */}
         <p className="authors top-text">
           {authors && <span className="text-by">текст: </span>}
           {authors &&
