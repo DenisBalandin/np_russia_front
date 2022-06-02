@@ -53,7 +53,7 @@ const Post = ({ data }) => {
         {dateProcessor(data.date)}
         <div className="views">
           <div className="image">
-            <Image src={views} alt="" />
+            <img src={views} alt="" />
           </div>
           <div className="views-count">{data.views}</div>
         </div>
