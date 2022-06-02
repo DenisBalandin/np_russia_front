@@ -41,7 +41,7 @@ const MainImage = ({ post }) => {
         <div className="image-box">
           <img src={post?.image} />
           {imageDesc && <p className="image-description">{imageDesc}</p>}
-          {imageRights && <p className="image-rights">{imageRights}</p>}
+          {/* {imageRights && <p className="image-rights">{imageRights}</p>} */}
         </div>
       </div>
       <style jsx>{`
