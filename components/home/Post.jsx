@@ -10,7 +10,8 @@ import views from "/public/images/views.png";
 const Post = ({ data }) => {
   const pageSrc = `/post/${data.link}`; /* to be changed */
   const categoryLink = data.category; /* to be changed */
-  const imgSrc = data.image;
+  const imgSrc = data?.image;
+  console.log("imgSrc", data.title, imgSrc);
   return (
     <div className="post-background">
       <Link href={pageSrc}>
