@@ -79,15 +79,6 @@ const Menu = (langToggle, query) => {
               </Link>
             </li>
             <li>
-              <Link href={`/category/Митинги`}>
-                <a>
-                  <div className="viewsTitle">
-                    {lang === "En" ? "Rallies" : "Митинги"}
-                  </div>
-                </a>
-              </Link>
-            </li>
-            <li>
               <Link href={`/category/Политика`}>
                 <a>
                   <div className="viewsTitle">
@@ -128,6 +119,15 @@ const Menu = (langToggle, query) => {
                 <a>
                   <div className="viewsTitle">
                     {lang === "En" ? "Sanctions" : "Санкции"}
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/category/Митинги`}>
+                <a>
+                  <div className="viewsTitle">
+                    {lang === "En" ? "Putin's team" : "Команда Путина"}
                   </div>
                 </a>
               </Link>
