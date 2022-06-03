@@ -16,13 +16,7 @@ const Post = ({ data }) => {
       <Link href={pageSrc}>
         <a>
           <div className="pic">
-            <Image
-              priority
-              src={imgSrc}
-              layout="fill"
-              objectFit="cover"
-              alt="views"
-            />
+            <img src={imgSrc} layout="fill" objectFit="cover" alt="views" />
           </div>
         </a>
       </Link>
