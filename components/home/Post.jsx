@@ -11,13 +11,18 @@ const Post = ({ data }) => {
   const pageSrc = `/post/${data.link}`; /* to be changed */
   const categoryLink = data.category; /* to be changed */
   const imgSrc = data?.image;
-  console.log("imgSrc", data.title, imgSrc);
   return (
     <div className="post-background">
       <Link href={pageSrc}>
         <a>
           <div className="pic">
-            <Image src={imgSrc} layout="fill" objectFit="cover" alt="views" />
+            <Image
+              priority
+              src={imgSrc}
+              layout="fill"
+              objectFit="cover"
+              alt="views"
+            />
           </div>
         </a>
       </Link>
