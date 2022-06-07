@@ -21,7 +21,9 @@ const MainImage = ({ post }) => {
         <h1 className="title top-text">{post?.title}</h1>
         <div
           className="description top-text"
-          dangerouslySetInnerHTML={{ __html: post?.description }}
+          dangerouslySetInnerHTML={{
+            __html: post?.description !== "none" ? post?.description : "",
+          }}
         />
         {/* <p className="description top-text">{post?.description}</p> */}
         <p className="authors top-text">

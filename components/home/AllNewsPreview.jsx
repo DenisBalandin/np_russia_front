@@ -23,12 +23,19 @@ const AllNewsPreview = ({ item }) => {
 
       <Link href={pageSrc}>
         <a>
-          <div className="title" title={item?.title}>
-            {item?.title}
-          </div>
-          <div className="description" title={item?.description}>
-            {item?.description}
-          </div>
+          <div
+            className="title"
+            title={item?.title}
+            dangerouslySetInnerHTML={{ __html: item?.title }}
+          />
+          <div
+            className="description"
+            title={item?.description}
+            dangerouslySetInnerHTML={{
+              __html:
+                item?.description === "none" ? item?.text : item?.description,
+            }}
+          />
         </a>
       </Link>
       <div className="date">{dateProcessor(item?.date)}</div>
