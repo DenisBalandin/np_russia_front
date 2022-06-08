@@ -297,7 +297,7 @@ const TopMenu = () => {
             position: relative;
             font-weight: bold;
             height: 3rem;
-            width: 4rem;
+            width: 4.3rem;
             border-top: 3px solid #c31e1e;
             background-color: #d92121;
             font-size: 0.62rem;
