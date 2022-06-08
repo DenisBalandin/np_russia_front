@@ -1,0 +1,8 @@
+<frameset cols="240,*" data-new-gr-c-s-check-loaded="14.1062.0" data-gr-ext-installed="">
+<frame name="mainleft" src="awstats.pl?config=nprussia.org&amp;ssl=&amp;lang=en&amp;framename=mainleft" noresize="noresize" frameborder="0">
+<frame name="mainright" src="awstats.pl?config=nprussia.org&amp;ssl=&amp;lang=en&amp;framename=mainright" noresize="noresize" scrolling="yes" frameborder="0">
+<noframes><body>Your browser does not support frames.<br />
+You must set AWStats UseFramesWhenCGI parameter to 0
+to see your reports.<br />
+</body></noframes>
+</frameset>

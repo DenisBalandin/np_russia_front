@@ -115,6 +115,10 @@ const TopMenu = () => {
               link="/donate"
               text={lang === "En" ? "Donate" : "Помоги сайту"}
             />
+            <MenuButton
+              link="/support-for-ukraine"
+              text={lang === "En" ? "Support for Ukraine" : "Помощь Украине"}
+            />
             {/* <MenuButton link="/subscribe" text="Рассылка" /> */}
           </div>
           <div className="logo-box">
@@ -135,8 +139,8 @@ const TopMenu = () => {
                 <MenuButton toggler="En" langToggle={langToggle} />
               )} */}
               <LangMenuButton />
-              {/* <MenuButton link="https://t.me" img={telegram} />
-              <MenuButton link="https://twitter.com" img={twitter} />
+              <MenuButton link="https://t.me/NP_Russia" img={telegram} />
+              {/*  <MenuButton link="https://twitter.com" img={twitter} />
               <MenuButton link="/feed" img={rss} /> */}
             </div>
             <div className="helper">
@@ -157,7 +161,34 @@ const TopMenu = () => {
           </span>
         </nav>
       </div>
+      <Link href="/donate">
+        <a>
+          <div className="ukraine-help-background">
+            <div className="ukraine-help-top-background"></div>
+            <div className="ukraine-text">
+              {lang === "En" ? "No War In Ukraine" : "Нет войне в Украине"}
+            </div>
+            <div className="ukraine-help-down-background"></div>
+          </div>
+        </a>
+      </Link>
       <style jsx>{`
+        .ukraine-text {
+          color: #e3edf7;
+          font-size: 2rem;
+          width: 24rem;
+          text-align: center;
+          margin: -1.4rem auto -1rem auto;
+          font-weight: bold;
+        }
+        .ukraine-help-top-background {
+          background-color: #0057b7;
+          height: 2.5rem;
+        }
+        .ukraine-help-down-background {
+          background-color: #ffd700;
+          height: 2.5rem;
+        }
         @media (min-width: 0px) {
           .topbar {
             visibility: hidden;

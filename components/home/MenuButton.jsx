@@ -80,15 +80,12 @@ const MenuButton = ({ link, text, img, toggler, langToggle }) => {
           cursor: pointer;
         }
         .image {
+          cursor: pointer;
           display: block;
           width: 100%;
           height: 50%;
           min-height: 3em;
           overflow: hidden;
-        }
-        .image:hover {
-          margin-top: -100%;
-          cursor: pointer;
         }
       `}</style>
     </div>
