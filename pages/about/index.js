@@ -10,6 +10,7 @@ import Footer from "../../components/home/Footer";
 import MostRead from "../../components/home/MostRead";
 import Share from "../../components/post/Share";
 import NewsStrip from "../../components/post/NewsStrip";
+import Link from "next/link";
 
 const About = () => {
   const [postData, setPostData] = useState([]);
@@ -54,7 +55,9 @@ const About = () => {
 
                 <p>
                   Вы можете сделать это на странице{" "}
-                  <a href="/donate">Помоги нашему сайту</a>.{" "}
+                  <Link href="/donate">
+                    <a> Помоги нашему сайту</a>
+                  </Link>
                 </p>
 
                 <p>
