@@ -53,20 +53,18 @@ const TopMenu = () => {
         <div className="mobileTopbar">
           <div className="navIcon">
             <Image
-              src={
-                "https://nprussia.org/admin/public/images/blog/69733e8f7215af5fabb76.jpg"
-              }
+              src={nav}
               height="35px"
               width="36px"
               onClick={() => menuToggle()}
               alt=""
             />
           </div>
-          <div className="logoMob">
+          {/* <div className="logoMob">
             <Link href="/">
               <a>NP Russia</a>
             </Link>
-          </div>
+          </div> */}
           <div className="searchMob">
             <Image src={searchMob} onClick={() => mobSearchToggle()} alt="" />
           </div>
@@ -75,9 +73,7 @@ const TopMenu = () => {
         <div className="mobileTopbar black">
           <div className="navIcon">
             <Image
-              src={
-                "https://nprussia.org/admin/public/images/blog/69733e8f7215af5fabb76.jpg"
-              }
+              src={nav}
               height="35px"
               width="36px"
               onClick={() => menuToggle()}
@@ -90,7 +86,11 @@ const TopMenu = () => {
             </Link>
           </div>
           <div className="searchMob">
-            <Image src={cross} onClick={() => backToWhiteMenu()} alt="" />
+            <Link href="/search">
+              <a>
+                <Image src={cross} onClick={() => backToWhiteMenu()} alt="" />
+              </a>
+            </Link>
           </div>
         </div>
       )}
@@ -161,7 +161,7 @@ const TopMenu = () => {
           </span>
         </nav>
       </div>
-      <Link href="/donate">
+      <Link href="/support-for-ukraine">
         <a>
           <div className="ukraine-help-background">
             <div className="ukraine-help-top-background"></div>
@@ -208,6 +208,7 @@ const TopMenu = () => {
           .navIcon {
             float: left;
             margin: auto auto auto 1rem;
+            cursor: pointer;
           }
           .logoMob {
             margin: auto;
@@ -259,7 +260,7 @@ const TopMenu = () => {
             font-size: 1.5rem;
             font-weight: bold;
             margin: auto;
-            margin-left: -0.75 rem;
+            padding: 0 8rem 0 0;
           }
           .logo {
             text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
