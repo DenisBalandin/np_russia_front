@@ -18,7 +18,12 @@ const MainImage = ({ post }) => {
   return (
     <div className="mi-background">
       <div className="mi-box">
-        <h1 className="title top-text">{post?.title}</h1>
+        <h1
+          className="title top-text"
+          dangerouslySetInnerHTML={{
+            __html: post?.title,
+          }}
+        />
         <div
           className="description top-text"
           dangerouslySetInnerHTML={{
