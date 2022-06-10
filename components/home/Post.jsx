@@ -52,10 +52,10 @@ const Post = ({ data }) => {
       <div className="date">
         {dateProcessor(data.date)}
         <div className="views">
-          <div className="image">
+          {/* <div className="image">
             <img src={views} alt="" />
           </div>
-          <div className="views-count">{data.views}</div>
+          <div className="views-count">{data.views}</div> */}
         </div>
       </div>
       <style jsx>{`
