@@ -14,6 +14,7 @@ const Category = () => {
   const [state, setState] = useState({
     title: "",
   });
+  const [endCat, setEndCat] = useState(false);
   const [lang, setLang] = useState("En");
 
   const router = useRouter();
@@ -21,6 +22,7 @@ const Category = () => {
   useEffect(() => {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.getBlogByCategory(link);
+      // console.log("blogResponse", blogResponse);
       setPostData(blogResponse);
     };
     if (postData?.length <= 0) blogCheckResponse();
@@ -66,11 +68,12 @@ const Category = () => {
 
   const changePage = (i) => {
     const blogCheckResponse = async () => {
-      const blogResponse = await BlogService.get(i);
-      setBlogData(blogResponse);
+      const blogResponse = await BlogService.getBlogByCategory(link, i);
+      setPostData(blogResponse);
     };
     blogCheckResponse();
   };
+
   return (
     <div>
       <TopMenu />
@@ -83,9 +86,9 @@ const Category = () => {
             {postData &&
               postData.map((item) => <Post key={item.id} data={item} />)}
           </div>
-          {/* <div className="pagination">
+          <div className="pagination">
             <Pagination moveToPage={changePage} category="cat" catlink={link} />
-          </div> */}
+          </div>
         </div>
         <style jsx>{`
           @media (min-width: 600px) {

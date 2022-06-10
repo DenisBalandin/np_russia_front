@@ -37,17 +37,17 @@ const MostReadPost = ({ id, arr }) => {
         </Link>
       </div>
       <div className="mrp-views">
-        <div className="views-image">
+        {/* <div className="views-image">
           <Image src={views} alt="views" />
-        </div>
-        <div className="views-count">{post.views}</div>
+        </div> */}
+        {/* <div className="views-count">{post.views}</div> */}
       </div>
       <style jsx>{`
         .mrp-background {
           background: white;
-          height: 17rem;
+          height: 15rem;
           padding: 1rem;
-          width: 15rem;
+          width: 16rem;
           display: flex;
           flex-direction: column;
           border: 1rem solid #f2f2f2;

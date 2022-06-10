@@ -21,17 +21,36 @@ const Pagination = ({ moveToPage, category, catlink }) => {
       if (category === "news") {
         getRowsCount = await NewsService.getNewsRowsCount();
       }
-      // if (category === "cat") {
-      //   getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
-      // }
+      if (category === "cat") {
+        getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
+      }
       for (let i = 0; i <= getRowsCount && getRowsCount; i++) {
         pageArr.push(i);
       }
       setPageArray(pageArr);
       setCountPage(getRowsCount);
     };
+
     blogCheckResponse();
   }, []);
+
+  useEffect(() => {
+    const blogCheckResponse = async () => {
+      const pageArr = [];
+      let getRowsCount = "";
+      if (category === "cat") {
+        getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
+      }
+      for (let i = 0; i <= getRowsCount && getRowsCount; i++) {
+        pageArr.push(i);
+      }
+      setPageArray(pageArr);
+      setCountPage(getRowsCount);
+    };
+
+    blogCheckResponse();
+  }, [catlink]);
+
   useLayoutEffect(() => {
     if (sessionStorage.getItem("state")) {
       setLang(sessionStorage.getItem("state"));
