@@ -55,6 +55,7 @@ const Post = () => {
           margin: 5rem auto;
           font-size: 3rem;
         }
+
         @media (min-width: 0px) {
           .Menu {
             visibility: hidden;

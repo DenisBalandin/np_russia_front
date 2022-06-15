@@ -59,6 +59,9 @@ const Post = ({ data }) => {
         </div>
       </div>
       <style jsx>{`
+        a {
+          color: red!importnat;
+        }
         @media (min-width: 0px) {
           .post-background {
             padding: 0.5rem 0.5rem 0 0.5rem;
