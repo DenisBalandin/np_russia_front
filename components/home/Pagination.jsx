@@ -61,6 +61,8 @@ const Pagination = ({ moveToPage, category, catlink }) => {
   useEffect(() => {
     sessionStorage.setItem("state", lang);
   }, [lang]);
+  console.log("countPgae", countPgae);
+  console.log("page", page);
   return (
     <div className="pag-background">
       <div className="pag-box mob" onClick={() => addPosts()}>
@@ -119,7 +121,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
             </div>
           )
         )} */}
-        {page == countPgae ? (
+        {page === countPgae ? (
           <div className="unclickable forward">
             {lang === "En" ? "Back" : "Назад"}
           </div>
@@ -127,8 +129,12 @@ const Pagination = ({ moveToPage, category, catlink }) => {
           <div
             className="clickable forward"
             onClick={() => {
-              moveToPage(page + 1);
-              setPage(page + 1);
+              let mpage = 1;
+              if (page >= countPgae) {
+                mpage;
+              }
+              moveToPage(page + mpage);
+              setPage(page + mpage);
             }}
           >
             {lang === "En" ? "Back" : "Назад"}

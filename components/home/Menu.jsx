@@ -124,10 +124,10 @@ const Menu = (langToggle, query) => {
               </Link>
             </li>
             <li>
-              <Link href={`/category/Команда Путина`}>
+              <Link href={`/category/Навальный`}>
                 <a>
                   <div className="viewsTitle">
-                    {lang === "En" ? "Putin's team" : "Команда Путина"}
+                    {lang === "En" ? "Navalny" : "Навальный"}
                   </div>
                 </a>
               </Link>

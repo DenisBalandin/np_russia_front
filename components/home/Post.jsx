@@ -42,7 +42,10 @@ const Post = ({ data }) => {
           </div>
           <div
             className="description"
-            dangerouslySetInnerHTML={{ __html: data.description }}
+            dangerouslySetInnerHTML={{
+              __html:
+                data?.description === "none" ? data?.text : data?.description,
+            }}
           />
           {/* <div className="description" title={data.description}>
             {data.description}
