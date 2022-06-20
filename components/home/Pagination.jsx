@@ -38,16 +38,16 @@ const Pagination = ({ moveToPage, category, catlink }) => {
     const blogCheckResponse = async () => {
       const pageArr = [];
       let getRowsCount = "";
-      if (category === "cat") {
-        getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
-      }
+
+      getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
+
       for (let i = 0; i <= getRowsCount && getRowsCount; i++) {
         pageArr.push(i);
       }
       setPageArray(pageArr);
       setCountPage(getRowsCount);
     };
-
+    setPage(0);
     blogCheckResponse();
   }, [catlink]);
 
@@ -61,8 +61,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
   useEffect(() => {
     sessionStorage.setItem("state", lang);
   }, [lang]);
-  console.log("countPgae", countPgae);
-  console.log("page", page);
+
   return (
     <div className="pag-background">
       <div className="pag-box mob" onClick={() => addPosts()}>
