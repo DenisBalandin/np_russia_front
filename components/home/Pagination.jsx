@@ -10,8 +10,7 @@ const Pagination = ({ moveToPage, category, catlink }) => {
   const [pageArray, setPageArray] = useState([]);
   const [countPgae, setCountPage] = useState(0);
   const [lang, setLang] = useState("En");
-  console.log(countPgae);
-  console.log(page);
+
   useEffect(() => {
     const blogCheckResponse = async () => {
       const pageArr = [];

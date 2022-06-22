@@ -23,7 +23,6 @@ const Post = () => {
     if (postData?.length <= 0) blogCheckResponse();
     if (postData && postData?.length === 0) blogCheckResponse();
   });
-  console.log(postData);
   return (
     <>
       {postData && postData?.length !== 0 ? (

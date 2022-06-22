@@ -86,6 +86,7 @@ const AllNewsPreview = ({ item }) => {
             line-clamp: 3;
             -webkit-box-orient: vertical;
             margin: 0.5rem 0 0 0.5rem;
+            height: 5.5rem;
           }
           .date {
             display: flex;
