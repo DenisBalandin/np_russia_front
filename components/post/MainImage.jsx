@@ -55,7 +55,7 @@ const MainImage = ({ post }) => {
         @media (max-width: 600px) {
           .title {
             font-size: 2rem !important;
-            line-height: 1.75rem !important;
+            line-height: 2rem !important;
           }
           .description {
             line-height: 1.4rem !important;
@@ -78,7 +78,7 @@ const MainImage = ({ post }) => {
         .title {
           font-size: 3rem;
           color: #1a1a1a;
-          line-height: 2.5rem;
+          line-height: 3rem;
           text-align: center;
           padding-top: 2.5rem;
           padding-bottom: 0.8rem;
@@ -88,7 +88,7 @@ const MainImage = ({ post }) => {
         .description {
           font-size: 1.5rem;
           color: #1a1a1a;
-          line-height: 1.9rem;
+          line-height: 2rem;
           text-align: center;
           padding-top: 0px;
           padding-bottom: 0px;
