@@ -28,14 +28,10 @@ const Blog = ({ startingPage = 0 }) => {
     <div className="blog-background">
       <div className="list">
         <div className="post-list">
-          {blogData.length > 0 ? (
-            blogData &&
+          {blogData &&
             blogData
               .slice(0, 12)
-              .map((item) => <Post key={item.id} data={item} />)
-          ) : (
-            <div>Loading</div>
-          )}
+              .map((item) => <Post key={item.id} data={item} />)}
         </div>
         <div className="most-read">
           <MostRead />

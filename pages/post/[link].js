@@ -8,6 +8,8 @@ import MainImage from "../../components/post/MainImage";
 import Content from "../../components/post/Content";
 import Footer from "../../components/home/Footer";
 import MostRead from "../../components/home/MostRead";
+import Image from "next/dist/client/image";
+import Loading from "/data/files/images/giphy.gif";
 
 const Post = () => {
   const [postData, setPostData] = useState([]);
@@ -21,35 +23,49 @@ const Post = () => {
     if (postData?.length <= 0) blogCheckResponse();
   });
   return (
-    <div>
-      <TopMenu />
-      <div className="Menu">
-        <Menu />
-      </div>
-      <hr />
-      {postData && postData?.length <= 0 ? (
-        <div className="load">Loading</div>
-      ) : (
-        <>
-          {" "}
-          <TopCategory
-            category={postData?.category}
-            viewCount={postData?.views}
-            date={postData?.date}
-          />
-          <MainImage post={postData} />
-          <Content
-            article={postData?.text}
-            link={link}
-            title={postData?.title}
-          />
-          <div className="newest">
-            <MostRead newest />
+    <>
+      {postData?.length !== 0 ? (
+        <div>
+          <TopMenu />
+          <div className="Menu">
+            <Menu />
           </div>
-        </>
+          <hr />
+          {postData && postData?.length <= 0 ? (
+            <div className="load">Loading</div>
+          ) : (
+            <>
+              {" "}
+              <TopCategory
+                category={postData?.category}
+                viewCount={postData?.views}
+                date={postData?.date}
+              />
+              <MainImage post={postData} />
+              <Content
+                article={postData?.text}
+                link={link}
+                title={postData?.title}
+              />
+              <div className="newest">
+                <MostRead newest />
+              </div>
+            </>
+          )}
+          <Footer />
+        </div>
+      ) : (
+        <div className="blog-background">
+          <Image src={Loading} height="300rem" width="300rem" alt="" />
+        </div>
       )}
-      <Footer />
       <style jsx>{`
+        .blog-background {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 15%;
+        }
         .load {
           width: 2rem;
           margin: 5rem auto;
@@ -89,7 +105,7 @@ const Post = () => {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 export default Post;

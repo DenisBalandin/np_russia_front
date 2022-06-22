@@ -24,12 +24,14 @@ const Menu = (langToggle, query) => {
     setInterval(() => {
       if (typeof window !== "undefined") {
         setVisibility(
-          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+          document.getElementsByClassName("Menu")[0]?.getBoundingClientRect()
+            .top
             ? "hidden"
             : "visible"
         );
         setPosition(
-          document.getElementsByClassName("Menu")[0].getBoundingClientRect().top
+          document.getElementsByClassName("Menu")[0]?.getBoundingClientRect()
+            .top
             ? "absolute"
             : "relative"
         );
