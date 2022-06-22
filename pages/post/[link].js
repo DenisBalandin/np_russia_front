@@ -21,6 +21,7 @@ const Post = () => {
       setPostData(blogResponse);
     };
     if (postData?.length <= 0) blogCheckResponse();
+    if (postData && postData?.length === 0) blogCheckResponse();
   });
   console.log(postData);
   return (
