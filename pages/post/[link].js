@@ -25,34 +25,27 @@ const Post = () => {
   console.log(postData);
   return (
     <>
-      {postData?.length !== 0 ? (
+      {postData && postData?.length !== 0 ? (
         <div>
           <TopMenu />
           <div className="Menu">
             <Menu />
           </div>
-          <hr />
-          {postData && postData?.length <= 0 ? (
-            <div className="load">Loading</div>
-          ) : (
-            <>
-              {" "}
-              <TopCategory
-                category={postData?.category}
-                viewCount={postData?.views}
-                date={postData?.date}
-              />
-              <MainImage post={postData} />
-              <Content
-                article={postData?.text}
-                link={link}
-                title={postData?.title}
-              />
-              <div className="newest">
-                <MostRead newest />
-              </div>
-            </>
-          )}
+          <hr />{" "}
+          <TopCategory
+            category={postData?.category}
+            viewCount={postData?.views}
+            date={postData?.date}
+          />
+          <MainImage post={postData} />
+          <Content
+            article={postData?.text}
+            link={link}
+            title={postData?.title}
+          />
+          <div className="newest">
+            <MostRead newest />
+          </div>
           <Footer />
         </div>
       ) : (
