@@ -10,7 +10,8 @@ const Pagination = ({ moveToPage, category, catlink }) => {
   const [pageArray, setPageArray] = useState([]);
   const [countPgae, setCountPage] = useState(0);
   const [lang, setLang] = useState("En");
-
+  console.log(countPgae);
+  console.log(page);
   useEffect(() => {
     const blogCheckResponse = async () => {
       const pageArr = [];
@@ -35,20 +36,22 @@ const Pagination = ({ moveToPage, category, catlink }) => {
   }, []);
 
   useEffect(() => {
-    const blogCheckResponse = async () => {
-      const pageArr = [];
-      let getRowsCount = "";
+    if (category === "cat") {
+      const blogCheckResponse = async () => {
+        const pageArr = [];
+        let getRowsCount = "";
 
-      getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
+        getRowsCount = await BlogService.getBlogCategoryRowsCount(catlink);
 
-      for (let i = 0; i <= getRowsCount && getRowsCount; i++) {
-        pageArr.push(i);
-      }
-      setPageArray(pageArr);
-      setCountPage(getRowsCount);
-    };
-    setPage(0);
-    blogCheckResponse();
+        for (let i = 0; i <= getRowsCount && getRowsCount; i++) {
+          pageArr.push(i);
+        }
+        setPageArray(pageArr);
+        setCountPage(getRowsCount);
+      };
+      setPage(0);
+      blogCheckResponse();
+    }
   }, [catlink]);
 
   useLayoutEffect(() => {
