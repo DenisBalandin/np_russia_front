@@ -33,7 +33,7 @@ const Post = () => {
       <Head>
         <html prefix="og: http://ogp.me/ns#" />
 
-        <title>Social Media Preview</title>
+        <title>{postData?.title}</title>
         <meta property="og:url" content="your url" />
         <meta property="og:site_name" content="Site name" />
 
