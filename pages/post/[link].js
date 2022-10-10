@@ -32,9 +32,7 @@ const Post = () => {
     <>
       {postData && postData?.length !== 0 && (
         <Head>
-          <html prefix="og: http://ogp.me/ns#" />
-
-          <title>{postData?.title}</title>
+          <title>{postData.title}</title>
           <meta property="og:url" content="your url" />
           <meta property="og:site_name" content="Site name" />
 
@@ -42,7 +40,7 @@ const Post = () => {
           <meta property="fb:app_id" content="your fb app id" />
           <meta property="og:title" content="test" />
           <meta name="twitter:card" content="summary" />
-          <meta property="og:description" content={postData?.title} />
+          <meta property="og:description" content={postData.title} />
           <meta
             property="og:image"
             content="http://region.expert/wp-content/uploads/2022/09/sadko-1903.jpg"
