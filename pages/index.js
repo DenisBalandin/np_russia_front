@@ -27,7 +27,14 @@ export default function Home() {
         <div>
           <Head>
             <title>NP Russia</title>
-            <meta name="description" content="NP Russia" />
+            <title>
+              iPhone 12 XS Max For Sale in Colorado - Big Discounts | Apple
+            </title>
+            <meta
+              name="description"
+              content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
+              key="desc"
+            />
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <TopMenu />
