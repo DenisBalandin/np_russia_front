@@ -37,12 +37,7 @@ const Post = () => {
           property="og:description"
           content="Hurray!! Yes Social Media Preview is Working"
         />
-        <meta
-          property="og:image"
-          content={
-            "http://region.expert/wp-content/uploads/2022/10/parl-rep.jpg"
-          }
-        />
+        <meta property="og:image" content={postData?.image} />
       </Head>
       {postData && postData?.length !== 0 ? (
         <div>
