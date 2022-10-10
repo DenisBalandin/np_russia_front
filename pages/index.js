@@ -26,31 +26,21 @@ export default function Home() {
       {blogData.length > 0 ? (
         <div>
           <Head>
-            <title>NP Russia</title>
-            <title>
-              iPhone 12 XS Max For Sale in Colorado - Big Discounts | Apple
-            </title>
+            <title>Cool Title</title>
             <meta
               name="description"
-              content="Франшиза Fallout празднует свое 25-летие, поэтому дату отмечают различные разработчики и студии, так или иначе приложившие свою руку к играм серии. Выступила и Obsidian Entertainment. Компания заявила, что у нее..."
+              content="Checkout our cool page"
+              key="desc"
             />
-            <link
-              rel="canonical"
-              href="https://shazoo.ru/2022/10/11/133568/obsidian-entertainment-v-dannyi-moment-ne-rabotaet-nad-igroi-po-fallout"
-            ></link>
-            <meta
-              property="og:title"
-              content="Obsidian Entertainment в данный момент не работает над игрой по Fallout"
-            ></meta>
+            <meta property="og:title" content="Social Title for Cool Page" />
             <meta
               property="og:description"
-              content="В начале года ходили слухи, что Microsoft и Obsidian ведут переговоры о потенциальном сиквеле Fallout: New Vegas, но сейчас у студии попросту нет свободных рук"
-            ></meta>
+              content="And a social description for our cool page"
+            />
             <meta
               property="og:image"
-              content="https://cdn.shazoo.ru/647854_72hPuv5_s7evh0tiol.jpg"
-            ></meta>
-            <link rel="icon" href="/favicon.ico" />
+              content="https://example.com/images/cool-page.jpg"
+            />
           </Head>
           <TopMenu />
           <Slider />
