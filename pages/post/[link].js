@@ -24,23 +24,27 @@ const Post = () => {
     if (postData?.length <= 0) blogCheckResponse();
     if (postData && postData?.length === 0) blogCheckResponse();
   });
+  //  if (postData && postData?.length) {
+  console.log(postData && postData.image);
+  // }
+
   return (
     <>
-      <Head>
-        <title>Social Media Preview</title>
-        <meta property="og:url" content="your url" />
-        <meta property="og:type" content="website" />
-        <meta property="fb:app_id" content="your fb app id" />
-        <meta property="og:title" content="Social Media Preview Working?" />
-        <meta name="twitter:card" content="summary" />
-        <meta
-          property="og:description"
-          content="Hurray!! Yes Social Media Preview is Working"
-        />
-        <meta property="og:image" content={postData?.image} />
-      </Head>
       {postData && postData?.length !== 0 ? (
         <div>
+          <Head>
+            <title>Social Media Preview</title>
+            <meta property="og:url" content="your url" />
+            <meta property="og:type" content="website" />
+            <meta property="fb:app_id" content="your fb app id" />
+            <meta property="og:title" content="Social Media Preview Working?" />
+            <meta name="twitter:card" content="summary" />
+            <meta
+              property="og:description"
+              content="Hurray!! Yes Social Media Preview is Working"
+            />
+            <meta property="og:image" content={postData?.image} />
+          </Head>
           <TopMenu />
           <div className="Menu">
             <Menu />
