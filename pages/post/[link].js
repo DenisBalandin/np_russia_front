@@ -28,21 +28,13 @@ const Post = () => {
     <>
       <Head>
         <title>Social Media Preview</title>
-        <meta property="og:url" content="your url" />
+        <meta property="og:url" content={link} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="your fb app id" />
-        <meta property="og:title" content="Social Media Preview Working?" />
+        <meta property="og:title" content={postData?.title} />
         <meta name="twitter:card" content="summary" />
-        <meta
-          property="og:description"
-          content="Hurray!! Yes Social Media Preview is Working"
-        />
-        <meta
-          property="og:image"
-          content={
-            "http://region.expert/wp-content/uploads/2022/10/parl-rep.jpg"
-          }
-        />
+        <meta property="og:description" content={postData?.text} />
+        <meta property="og:image" content={postData?.image} />
       </Head>
       {postData && postData?.length !== 0 ? (
         <div>
