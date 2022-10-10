@@ -10,6 +10,7 @@ import Footer from "../../components/home/Footer";
 import MostRead from "../../components/home/MostRead";
 import Image from "next/dist/client/image";
 import Loading from "/data/files/images/giphy.gif";
+import Head from "next/head";
 
 const Post = () => {
   const [postData, setPostData] = useState([]);
@@ -25,6 +26,24 @@ const Post = () => {
   });
   return (
     <>
+      <Head>
+        <title>Social Media Preview</title>
+        <meta property="og:url" content="your url" />
+        <meta property="og:type" content="website" />
+        <meta property="fb:app_id" content="your fb app id" />
+        <meta property="og:title" content="Social Media Preview Working?" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Hurray!! Yes Social Media Preview is Working"
+        />
+        <meta
+          property="og:image"
+          content={
+            "http://region.expert/wp-content/uploads/2022/10/parl-rep.jpg"
+          }
+        />
+      </Head>
       {postData && postData?.length !== 0 ? (
         <div>
           <TopMenu />

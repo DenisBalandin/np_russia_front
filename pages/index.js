@@ -26,17 +26,9 @@ export default function Home() {
       {blogData.length > 0 ? (
         <div>
           <Head>
-            <html lang="ru" prefix="og: http://ogp.me/ns#" />
-            <meta property="og:url" content="https://example.com" />
-            <meta property="og:type" content="website" />
-            <meta property="og:image" content="path/to/photo.jpg?v=4" />
-            <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:site_name" content="ghjghjgjhghjghj" />
-            <meta property="og:title" content="dfghfghfgj" />
-            <meta
-              property="og:description"
-              content="sdfsfsdfsdfsdfsdfsdfdsfsdf"
-            />
+            <title>NP Russia</title>
+            <meta name="description" content="NP Russia" />
+            <link rel="icon" href="/favicon.ico" />
           </Head>
           <TopMenu />
           <Slider />
