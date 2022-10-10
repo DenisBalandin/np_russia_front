@@ -32,9 +32,24 @@ export default function Home() {
             </title>
             <meta
               name="description"
-              content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
-              key="desc"
+              content="Франшиза Fallout празднует свое 25-летие, поэтому дату отмечают различные разработчики и студии, так или иначе приложившие свою руку к играм серии. Выступила и Obsidian Entertainment. Компания заявила, что у нее..."
             />
+            <link
+              rel="canonical"
+              href="https://shazoo.ru/2022/10/11/133568/obsidian-entertainment-v-dannyi-moment-ne-rabotaet-nad-igroi-po-fallout"
+            ></link>
+            <meta
+              property="og:title"
+              content="Obsidian Entertainment в данный момент не работает над игрой по Fallout"
+            ></meta>
+            <meta
+              property="og:description"
+              content="В начале года ходили слухи, что Microsoft и Obsidian ведут переговоры о потенциальном сиквеле Fallout: New Vegas, но сейчас у студии попросту нет свободных рук"
+            ></meta>
+            <meta
+              property="og:image"
+              content="https://cdn.shazoo.ru/647854_72hPuv5_s7evh0tiol.jpg"
+            ></meta>
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <TopMenu />
