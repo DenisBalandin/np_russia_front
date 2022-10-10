@@ -26,20 +26,16 @@ export default function Home() {
       {blogData.length > 0 ? (
         <div>
           <Head>
-            <title>Cool Title</title>
-            <meta
-              name="description"
-              content="Checkout our cool page"
-              key="desc"
-            />
-            <meta property="og:title" content="Social Title for Cool Page" />
+            <html lang="ru" prefix="og: http://ogp.me/ns#" />
+            <meta property="og:url" content="https://example.com" />
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content="path/to/photo.jpg?v=4" />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:site_name" content="ghjghjgjhghjghj" />
+            <meta property="og:title" content="dfghfghfgj" />
             <meta
               property="og:description"
-              content="And a social description for our cool page"
-            />
-            <meta
-              property="og:image"
-              content="https://example.com/images/cool-page.jpg"
+              content="sdfsfsdfsdfsdfsdfsdfdsfsdf"
             />
           </Head>
           <TopMenu />
