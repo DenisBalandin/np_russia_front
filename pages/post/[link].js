@@ -26,18 +26,18 @@ const Post = () => {
   });
   return (
     <>
+      <Head>
+        <title>{postData?.title}</title>
+        <meta property="og:url" content={link} />
+        <meta property="og:type" content="website" />
+        <meta property="fb:app_id" content="your fb app id" />
+        <meta property="og:title" content="{postData?.title}" />
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:description" content="{postData?.text}" />
+        <meta property="og:image" content="{postData?.image}" />
+      </Head>
       {postData && postData?.length !== 0 ? (
         <div>
-          <Head>
-            <title>{postData?.title}</title>
-            <meta property="og:url" content={link} />
-            <meta property="og:type" content="website" />
-            <meta property="fb:app_id" content="your fb app id" />
-            <meta property="og:title" content={postData?.title} />
-            <meta name="twitter:card" content="summary" />
-            <meta property="og:description" content={postData?.text} />
-            <meta property="og:image" content={postData?.image} />
-          </Head>
           <TopMenu />
           <div className="Menu">
             <Menu />
