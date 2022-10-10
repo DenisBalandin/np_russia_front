@@ -39,7 +39,7 @@ const Post = () => {
 
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="your fb app id" />
-        <meta property="og:title" content="Social Media Preview Working?" />
+        <meta property="og:title" content={postData?.title} />
         <meta name="twitter:card" content="summary" />
         <meta
           property="og:description"
