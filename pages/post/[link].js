@@ -10,7 +10,6 @@ import Footer from "../../components/home/Footer";
 import MostRead from "../../components/home/MostRead";
 import Image from "next/dist/client/image";
 import Loading from "/data/files/images/giphy.gif";
-import Head from "next/head";
 
 const Post = () => {
   const [postData, setPostData] = useState([]);
@@ -24,29 +23,8 @@ const Post = () => {
     if (postData?.length <= 0) blogCheckResponse();
     if (postData && postData?.length === 0) blogCheckResponse();
   });
-  //  if (postData && postData?.length) {
-  console.log(postData && postData.image);
-  // }
-
   return (
     <>
-      {postData && postData?.length !== 0 && (
-        <Head>
-          <title>{postData.title}</title>
-          <meta property="og:url" content="your url" />
-          <meta property="og:site_name" content="Site name" />
-
-          <meta property="og:type" content="website" />
-          <meta property="fb:app_id" content="your fb app id" />
-          <meta property="og:title" content="test" />
-          <meta name="twitter:card" content="summary" />
-          <meta property="og:description" content={postData.title} />
-          <meta
-            property="og:image"
-            content="http://region.expert/wp-content/uploads/2022/09/sadko-1903.jpg"
-          />
-        </Head>
-      )}
       {postData && postData?.length !== 0 ? (
         <div>
           <TopMenu />

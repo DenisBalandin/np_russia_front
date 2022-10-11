@@ -8,10 +8,10 @@ import Footer from "../../components/home/Footer";
 const AllNews = () => {
   return (
     <div>
-      {/* <Head>
+      <Head>
         <title>NP Russia</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head> */}
+      </Head>
       <TopMenu />
       <div className="Menu">
         <Menu />

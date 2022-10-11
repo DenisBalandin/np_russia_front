@@ -25,11 +25,11 @@ export default function Home() {
     <>
       {blogData.length > 0 ? (
         <div>
-          {/* <Head>
+          <Head>
             <title>NP Russia</title>
             <meta name="description" content="NP Russia" />
             <link rel="icon" href="/favicon.ico" />
-          </Head> */}
+          </Head>
           <TopMenu />
           <Slider />
           <div className="Menu">
