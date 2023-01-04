@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      {blogData.length > 0 ? (
+      {blogData && blogData.length > 0 ? (
         <div>
           <Head>
             <title>NP Russia</title>

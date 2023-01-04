@@ -25,7 +25,7 @@ const Post = () => {
   });
   return (
     <>
-      {postData && postData?.length !== 0 ? (
+      {postData && postData?.length > 0 ? (
         <div>
           <TopMenu />
           <div className="Menu">
