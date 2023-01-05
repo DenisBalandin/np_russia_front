@@ -14,20 +14,28 @@ const News = () => {
   const [showLoad, setShowLoad] = useState(false);
 
   const router = useRouter();
+  const { link } = router?.query;
 
   useEffect(() => {
     const newsCheckResponse = async () => {
       const { link } = router.query;
       const newsResponse = await NewsService.getOneByLink(link);
       setNewsData(newsResponse);
+      setShowLoad([newsResponse]);
     };
     if (newsData?.length <= 0) newsCheckResponse();
   });
 
   useEffect(() => {
-    setShowLoad(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [newsData && newsData.length > 0]);
+    const newsCheckResponse = async () => {
+      const { link } = router.query;
+      const newsResponse = await NewsService.getOneByLink(link);
+      setNewsData(newsResponse);
+      setShowLoad([newsResponse]);
+    };
+    newsCheckResponse();
+  }, [link]);
+
   return (
     <div>
       <TopMenu />
@@ -35,9 +43,7 @@ const News = () => {
         <Menu />
       </div>
       <hr />
-      {!showLoad ? (
-        <div className="load">Loading</div>
-      ) : (
+      {showLoad && showLoad.length > 0 ? (
         <>
           <MainImage post={newsData} />
           <Content article={newsData?.text} />
@@ -45,6 +51,8 @@ const News = () => {
             <MostRead newest />
           </div>
         </>
+      ) : (
+        <div className="load">Loading</div>
       )}
       <Footer />
       <style jsx>{`

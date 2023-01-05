@@ -13,25 +13,21 @@ import Loading from "/data/files/images/giphy.gif";
 
 const Post = () => {
   const [postData, setPostData] = useState([]);
-  const [showLoad, setShowLoad] = useState(false);
+  const [showLoad, setShowLoad] = useState([]);
   const router = useRouter();
   const { link } = router.query;
   useEffect(() => {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.getOneByLink(link);
       setPostData(blogResponse);
+      setShowLoad([blogResponse]);
     };
     if (postData?.length <= 0) blogCheckResponse();
     if (postData && postData?.length === 0) blogCheckResponse();
   });
-  useEffect(() => {
-    setShowLoad(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postData && postData.length > 0]);
-
   return (
     <>
-      {showLoad ? (
+      {showLoad && showLoad.length > 0 ? (
         <div>
           <TopMenu />
           <div className="Menu">

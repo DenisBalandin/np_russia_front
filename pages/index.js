@@ -18,18 +18,14 @@ export default function Home() {
     const blogCheckResponse = async () => {
       const blogResponse = await BlogService.get(0);
       setBlogData(blogResponse);
+      setShowLoad([blogResponse]);
     };
     blogCheckResponse();
   }, []);
 
-  useEffect(() => {
-    setShowLoad(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blogData && blogData.length > 0]);
-
   return (
     <>
-      {showLoad ? (
+      {showLoad && showLoad.length > 0 ? (
         <div>
           <Head>
             <title>NP Russia</title>
