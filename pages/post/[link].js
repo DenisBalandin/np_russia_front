@@ -13,6 +13,7 @@ import Loading from "/data/files/images/giphy.gif";
 
 const Post = () => {
   const [postData, setPostData] = useState([]);
+  const [showLoad, setShowLoad] = useState(false);
   const router = useRouter();
   const { link } = router.query;
   useEffect(() => {
@@ -23,9 +24,14 @@ const Post = () => {
     if (postData?.length <= 0) blogCheckResponse();
     if (postData && postData?.length === 0) blogCheckResponse();
   });
+  useEffect(() => {
+    setShowLoad(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postData && postData.length > 0]);
+
   return (
     <>
-      {postData && postData?.length > 0 ? (
+      {showLoad ? (
         <div>
           <TopMenu />
           <div className="Menu">

@@ -12,6 +12,7 @@ import Image from "next/dist/client/image";
 
 export default function Home() {
   const [blogData, setBlogData] = useState([]);
+  const [showLoad, setShowLoad] = useState(false);
 
   useEffect(() => {
     const blogCheckResponse = async () => {
@@ -21,9 +22,14 @@ export default function Home() {
     blogCheckResponse();
   }, []);
 
+  useEffect(() => {
+    setShowLoad(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [blogData && blogData.length > 0]);
+
   return (
     <>
-      {blogData && blogData.length > 0 ? (
+      {showLoad ? (
         <div>
           <Head>
             <title>NP Russia</title>

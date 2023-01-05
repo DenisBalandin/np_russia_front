@@ -11,6 +11,8 @@ import MostRead from "../../components/home/MostRead";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
+  const [showLoad, setShowLoad] = useState(false);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -21,6 +23,11 @@ const News = () => {
     };
     if (newsData?.length <= 0) newsCheckResponse();
   });
+
+  useEffect(() => {
+    setShowLoad(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newsData && newsData.length > 0]);
   return (
     <div>
       <TopMenu />
@@ -28,7 +35,7 @@ const News = () => {
         <Menu />
       </div>
       <hr />
-      {newsData && newsData?.length <= 0 ? (
+      {!showLoad ? (
         <div className="load">Loading</div>
       ) : (
         <>
